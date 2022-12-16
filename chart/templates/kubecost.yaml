@@ -15,8 +15,6 @@ spec:
     helm:
       valueFiles:
       - values.yaml 
-#      value: |
-#        {{- toYaml .Values.kubecost | nindent 8 }}
   destination:
     server: https://kubernetes.default.svc
     namespace: kubecost
