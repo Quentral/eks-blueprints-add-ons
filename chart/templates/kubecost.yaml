@@ -13,7 +13,7 @@ spec:
     path: add-ons/kubecost
     targetRevision: {{ .Values.targetRevision }}
     helm:
-      valuesfiles:
+      valueFiles:
       -.values.yaml 
 #      value: |
 #        {{- toYaml .Values.kubecost | nindent 8 }}
