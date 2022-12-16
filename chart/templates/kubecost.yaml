@@ -14,7 +14,7 @@ spec:
     targetRevision: {{ .Values.targetRevision }}
     helm:
       valueFiles:
-      -.values.yaml 
+      - values.yaml 
 #      value: |
 #        {{- toYaml .Values.kubecost | nindent 8 }}
   destination:
