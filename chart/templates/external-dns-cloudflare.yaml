@@ -1,0 +1,38 @@
+{{- if and (.Values.externalDnsClouflare) (.Values.externalDnsCloudflare.enable) -}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-dns-cloudflare
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: {{ .Values.repoUrl }}
+    path: add-ons/external-dns-cloudflare
+    targetRevision: {{ .Values.targetRevision }}
+    helm:
+      values: |
+        external-dns-cloudflare:
+        {{- toYaml .Values.externalDnsClouflare | nindent 10 }}
+      parameters:
+      - name: external-dns-cloudflare.cloudlfare.cloudflare-api-token
+        value: {{ .Values.externalDnsCloudflare.apiToken }}
+      - name: external-dns-cloudflare.domain-filters[0]
+        value: {{ .Values.externalDns.domainFilters }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: external-dns-cloudflare
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
+    retry:
+      limit: 1
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 1m
+{{- end -}}
