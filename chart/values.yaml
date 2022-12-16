@@ -79,6 +79,13 @@ externalDns:
   serviceAccountName:
   zoneIdFilter:
 
+# External DNS CLOUDFLARE
+externalDnsCloudflare:
+  enable: false
+  serviceAccountName:
+  domainFilters:
+  apiToken:
+
 # External Secrets Operator
 externalSecrets:
   enable: false
@@ -233,4 +240,7 @@ nvidiaDevicePlugin:
   enable: false
 
 velero:
+  enable: false
+
+vcluster:
   enable: false
