@@ -16,6 +16,12 @@ kubecostMetrics:
   emitNamespaceAnnotations: true
 
 prometheus:
+  kube-state-metrics:
+    disabled: true
+
+  nodeExporter:
+    enabled: false
+
   server:
     image:
       repository: public.ecr.aws/kubecost/prometheus
@@ -26,12 +32,6 @@ prometheus:
       image:
         repository: public.ecr.aws/bitnami/configmap-reload
         tag: 0.7.1
-
-  kube-state-metrics:
-    disabled: true
-
-  nodeExporter:
-    enabled: false
 
 reporting:
   productAnalytics: false
