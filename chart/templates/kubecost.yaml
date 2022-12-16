@@ -12,8 +12,10 @@ spec:
     repoURL: {{ .Values.repoUrl }}
     path: add-ons/kubecost
     targetRevision: {{ .Values.targetRevision }}
-#    helm:
-#      values: |
+    helm:
+      valuesfiles:
+      -.values.yaml 
+#      value: |
 #        {{- toYaml .Values.kubecost | nindent 8 }}
   destination:
     server: https://kubernetes.default.svc
