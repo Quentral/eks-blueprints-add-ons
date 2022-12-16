@@ -14,7 +14,7 @@ spec:
     targetRevision: {{ .Values.targetRevision }}
     helm:
       values: |
-        external-dns-cloudflare:
+        external-dns:
         {{- toYaml .Values.externalDnsClouflare | nindent 10 }}
       parameters:
       - name: external-dns-cloudflare.cloudlfare.cloudflare-api-token
