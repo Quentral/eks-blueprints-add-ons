@@ -19,6 +19,10 @@ spec:
       parameters:
       - name: cert-manager.serviceAccount.name
         value: {{ .Values.certManager.serviceAccountName }}
+        name: cert-manager.acme.email
+        values: {{ .Values.certManager.email }}
+        name: cert-manager.acme.solvers.selector.dnsNames
+        values: {{ .Values.certManager.dnsZones }}
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager

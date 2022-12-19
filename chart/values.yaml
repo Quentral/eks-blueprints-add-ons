@@ -55,6 +55,8 @@ awsOtelCollector:
 certManager:
   enable: false
   serviceAccountName:
+  dnsZones:
+  email:
 
 # Cert Manager CSI Driver Values
 certManagerCsiDriver:

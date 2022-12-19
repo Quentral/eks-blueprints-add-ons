@@ -16,6 +16,10 @@ spec:
       values: |
         kyverno:
         {{- toYaml .Values.kyverno | nindent 10 }}
+        policies:
+        {{- toYaml .Values.policies | nindent 10 }}
+        reporter:
+        {{- toYaml .Values.reporter | nindent 10 }}
   destination:
     server: https://kubernetes.default.svc
     namespace: kyverno
