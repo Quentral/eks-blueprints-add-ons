@@ -15,6 +15,6 @@ version: 0.1.2
 appVersion: "1.1"
 
 dependencies:
-  - name: kubecost
-    version: 1.96.0
+  - name: cost-analyzer
+    version: 1.99.0
     repository: https://kubecost.github.io/cost-analyzer/
