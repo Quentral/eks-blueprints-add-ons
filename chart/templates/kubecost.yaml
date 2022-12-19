@@ -13,8 +13,9 @@ spec:
     path: add-ons/kubecost
     targetRevision: {{ .Values.targetRevision }}
     helm:
-      valueFiles:
-      - values.yaml 
+      values: |
+        kubecost:
+        {{- toYaml .Values.kubecost | nindent 10 }}
   destination:
     server: https://kubernetes.default.svc
     namespace: kubecost
