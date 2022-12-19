@@ -25,6 +25,9 @@ spec:
           value: {{ .Values.karpenter.controllerClusterEndpoint }}
         - name: karpenter.aws.defaultInstanceProfile
           value: {{ .Values.karpenter.awsDefaultInstanceProfile }}
+        - name: global.clusterName
+          value: {{ .Values.karpenter.controllerClusterName }}
+          controllerClusterName
   destination:
     server: https://kubernetes.default.svc
     namespace: karpenter
