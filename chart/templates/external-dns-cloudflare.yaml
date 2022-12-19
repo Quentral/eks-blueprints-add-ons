@@ -15,12 +15,12 @@ spec:
     helm:
       values: |
         external-dns:
-        {{- toYaml .Values.externalDnsClouflare | nindent 10 }}
+        {{- toYaml .Values.externalDnsCloudflare | nindent 10 }}
       parameters:
       - name: external-dns-cloudflare.cloudlfare.cloudflare-api-token
         value: {{ .Values.externalDnsCloudflare.apiToken }}
       - name: external-dns-cloudflare.domain-filters[0]
-        value: {{ .Values.externalDns.domainFilters }}
+        value: {{ .Values.externalDnsCloudflare.domainFilters }}
   destination:
     server: https://kubernetes.default.svc
     namespace: external-dns-cloudflare
