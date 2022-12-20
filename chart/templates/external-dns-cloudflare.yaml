@@ -17,9 +17,9 @@ spec:
         external-dns:
         {{- toYaml .Values.externalDnsCloudflare | nindent 10 }}
       parameters:
-      - name: external-dns.cloudlfare.cloudflare-api-token
+      - name: external-dns.cloudlfare.apiToken
         value: {{ .Values.externalDnsCloudflare.apiToken }}
-      - name: external-dns.domain-filters[0]
+      - name: external-dns.domainFilters[0]
         value: {{ .Values.externalDnsCloudflare.domainFilters }}
   destination:
     server: https://kubernetes.default.svc
