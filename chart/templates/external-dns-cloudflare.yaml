@@ -20,7 +20,7 @@ spec:
       - name: external-dns.cloudflare.apiToken
         value: {{ .Values.externalDnsCloudflare.apiToken }}
       - name: external-dns.domainFilters
-        value: {{ .Values.externalDnsCloudflare.domainFilters }}
+        value: {{ .Values.externalDnsCloudflare.domainFilters | toYaml }}
   destination:
     server: https://kubernetes.default.svc
     namespace: external-dns-cloudflare
