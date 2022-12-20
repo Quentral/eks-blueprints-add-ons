@@ -19,8 +19,6 @@ spec:
       parameters:
       - name: external-dns.cloudflare.apiToken
         value: {{ .Values.externalDnsCloudflare.apiToken }}
-      - name: external-dns.domainFilters
-        value: []
   destination:
     server: https://kubernetes.default.svc
     namespace: external-dns-cloudflare
