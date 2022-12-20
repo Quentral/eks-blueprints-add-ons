@@ -1,11 +1,13 @@
-external-dns-cloudflare:
+external-dns:
+  aws:
+    region: "us-east-2"
   serviceAccount:
-    create: false
+    create: true
     name: "external-dns-sa"
   sources:
     - ingress
+    - service
   provider: cloudflare
   cloudflare:
     apiToken: ""
     proxied: false
-  #domainFilters: []
