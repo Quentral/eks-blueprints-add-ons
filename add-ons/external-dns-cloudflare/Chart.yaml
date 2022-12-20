@@ -1,5 +1,5 @@
 apiVersion: v2
-name: external-dns
+name: external-dns-cloudflare
 description: A Helm chart for External DNS
 
 # Application charts are a collection of templates that can be packaged into versioned archives
