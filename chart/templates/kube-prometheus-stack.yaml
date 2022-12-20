@@ -13,7 +13,6 @@ spec:
     path: add-ons/kube-prometheus-stack
     targetRevision: {{ .Values.targetRevision }}
     helm:
-      skipCrds: true
       values: |
         kube-prometheus-stack:
         {{- toYaml .Values.kubePrometheusStack | nindent 10 }}
