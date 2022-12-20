@@ -25,12 +25,12 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
+    - ServerSideApply=true
     - CreateNamespace=true
-    - Replace=true
     retry:
       limit: 1
       backoff:
         duration: 5s
         factor: 2
-        maxDuration: 5m
+        maxDuration: 5  m
 {{- end -}}
