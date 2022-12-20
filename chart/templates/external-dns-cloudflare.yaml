@@ -12,15 +12,15 @@ spec:
     repoURL: {{ .Values.repoUrl }}
     path: add-ons/external-dns-cloudflare
     targetRevision: {{ .Values.targetRevision }}
-    #helm:
-      #values: |
-        #external-dns:
-        #{{- toYaml .Values.externalDnsCloudflare | nindent 10 }}
-      #parameters:
-      #- name: external-dns.cloudflare.apiToken
-        #value: {{ .Values.externalDnsCloudflare.apiToken }}
-      #- name: external-dns.domainFilters
-        #value: {{ .Values.externalDnsCloudflare.domainFilters }}
+    helm:
+      values: |
+        external-dns-cloudflare:
+        {{- toYaml .Values.externalDnsCloudflare | nindent 10 }}
+      parameters:
+      - name: external-dns.cloudflare.apiToken
+        value: {{ .Values.externalDnsCloudflare.apiToken }}
+      - name: external-dns.domainFilters
+        value: {{ .Values.externalDnsCloudflare.domainFilters }}
   destination:
     server: https://kubernetes.default.svc
     namespace: external-dns-cloudflare

@@ -1,4 +1,4 @@
-external-dns:
+external-dns-cloudflare:
   serviceAccount:
     create: false
     name: "external-dns-sa"
