@@ -17,7 +17,7 @@ spec:
         external-dns:
         {{- toYaml .Values.externalDnsCloudflare | nindent 10 }}
       parameters:
-      - name: external-dns.cloudlfare.apiToken
+      - name: external-dns.cloudflare.apiToken
         value: {{ .Values.externalDnsCloudflare.apiToken }}
       - name: external-dns.domainFilters[0]
         value: {{ .Values.externalDnsCloudflare.domainFilters }}
