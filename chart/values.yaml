@@ -85,7 +85,7 @@ externalDns:
 externalDnsCloudflare:
   enable: false
   serviceAccountName:
-  domainFilters: []
+  domainFilters:
   apiToken: ""
 
 # External Secrets Operator
