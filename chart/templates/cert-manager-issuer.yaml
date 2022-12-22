@@ -1,0 +1,36 @@
+{{- if and (.Values.certManager) (.Values.certManager.enable) -}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager-issuer
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: {{ .Values.repoUrl }}
+    path: add-ons/cert-manager-issuer
+    targetRevision: {{ .Values.targetRevision }}
+    helm:
+      values: |
+        cert-manager-issuer:
+        {{- toYaml .Values.certManagerIssuer | nindent 10 }}
+      parameters:
+      - name: cert-manager-issuer.clusterIssuers[0].spec.acme.email
+        value: {{ .Values.certManager.email }}
+      - name: cert-manager-issuer.clusterIssuers[1].spec.acme.email
+        value: {{ .Values.certManager.email }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cert-manager-issuer
+  syncPolicy:
+    automated:
+      prune: true
+    retry:
+      limit: 1
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 1m
+{{- end -}}

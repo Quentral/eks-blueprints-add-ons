@@ -58,6 +58,11 @@ certManager:
   dnsZones:
   email:
 
+# Cert Manager Values
+certManagerIssuer:
+  enable: false
+  email:
+
 # Cert Manager CSI Driver Values
 certManagerCsiDriver:
   enable: false
