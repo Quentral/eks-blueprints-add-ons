@@ -88,6 +88,10 @@ externalDnsCloudflare:
   domainFilters: []
   apiToken: ""
 
+# Forecastle
+forecastle:
+  enable: false
+
 # External Secrets Operator
 externalSecrets:
   enable: false

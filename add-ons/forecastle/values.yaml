@@ -1,0 +1,15 @@
+forecastle:
+  ingress:
+    enabled: true
+    annotations:
+      "cert-manager.io/cluster-issuer": "letsencrypt-staging"
+    className: nginx
+    hosts:
+      - host: forecastle.kube.quentrix.com
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - hosts:
+        - forecastle.kube.quentrix.com
+        secretName: letsencrypt-staging
