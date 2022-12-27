@@ -1,26 +1,26 @@
-{{- if and (.Values.metricsServer) (.Values.metricsServer.enable) -}}
+{{- if and (.Values.teleport-kube-agent) (.Values.teleport-kube-agent.enable) -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: metrics-server
+  name: teleport-kube-agent
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "4"
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
     repoURL: {{ .Values.repoUrl }}
-    path: add-ons/metrics-server
+    path: add-ons/teleport-kube-agent
     targetRevision: {{ .Values.targetRevision }}
     helm:
       values: |
-        metrics-server:
-        {{- toYaml .Values.metricsServer | nindent 10 }}
+        teleport-kube-agent:
+        {{- toYaml .Values.teleport-kube-agent	 | nindent 10 }}
   destination:
     server: https://kubernetes.default.svc
-    namespace: kube-system
+    namespace: teleport-kube-agent
   syncPolicy:
     automated:
       prune: true

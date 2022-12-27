@@ -137,6 +137,14 @@ keda:
 metricsServer:
   enable: false
 
+# Teleport-cluster
+teleport-cluster:
+  enable: false
+
+# Teleport-kube-agent
+teleport-kube-agent	:
+  enable: false
+
 # Ondat Values
 ondat:
   enable: false
