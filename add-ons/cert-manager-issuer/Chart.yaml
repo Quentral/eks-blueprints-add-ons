@@ -12,6 +12,6 @@ version: 0.1.0
 appVersion: "1.0"
 
 dependencies:
-- name: cert-manager-ssuer
+- name: cert-manager-issuer
   version: 0.2.5
   repository: https://charts.adfinis.com
