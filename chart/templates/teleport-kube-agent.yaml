@@ -17,7 +17,7 @@ spec:
     helm:
       values: |
         teleport-kube-agent:
-        {{- toYaml .Values.teleport-kube-agent	 | nindent 10 }}
+        {{- toYaml .Values.teleport-kube-agent | nindent 10 }}
   destination:
     server: https://kubernetes.default.svc
     namespace: teleport-kube-agent
