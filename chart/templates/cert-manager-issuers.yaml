@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cert-manager-issuer
+  name: cert-manager-issuers
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "6"
@@ -12,20 +12,20 @@ spec:
   project: default
   source:
     repoURL: {{ .Values.repoUrl }}
-    path: add-ons/cert-manager-issuer
+    path: add-ons/cert-manager-issuers
     targetRevision: {{ .Values.targetRevision }}
     helm:
       values: |
-        cert-manager-issuer:
-        {{- toYaml .Values.certManagerIssuer | nindent 10 }}
+        cert-manager-issuers:
+        {{- toYaml .Values.certManagerIssuers | nindent 10 }}
       parameters:
-      - name: cert-manager-issuer.clusterIssuers[0].spec.acme.email
+      - name: cert-manager-issuers.clusterIssuers[0].spec.acme.email
         value: {{ .Values.certManager.email }}
-      - name: cert-manager-issuer.clusterIssuers[1].spec.acme.email
+      - name: cert-manager-issuers.clusterIssuers[1].spec.acme.email
         value: {{ .Values.certManager.email }}
   destination:
     server: https://kubernetes.default.svc
-    namespace: cert-manager-issuer
+    namespace: cert-manager-issuers
   syncPolicy:
     automated:
       prune: true
