@@ -144,11 +144,11 @@ metricsServer:
   enable: false
 
 # Teleport-cluster
-teleport-cluster:
+teleportCluster:
   enable: false
 
 # Teleport-kube-agent
-teleport-kube-agent:
+teleportKubeagent:
   enable: false
 
 # Ondat Values

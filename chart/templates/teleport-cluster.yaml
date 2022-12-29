@@ -1,4 +1,4 @@
-{{- if and (.Values.teleport-cluster) (.Values.teleport-cluster.enable) -}}
+{{- if and (.Values.teleportCluster) (.Values.teleportCluster.enable) -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -17,7 +17,7 @@ spec:
     helm:
       values: |
         teleport-cluster:
-        {{- toYaml .Values.teleport-cluster | nindent 10 }}
+        {{- toYaml .Values.teleportCluster | nindent 10 }}
   destination:
     server: https://kubernetes.default.svc
     namespace: teleport-cluster
