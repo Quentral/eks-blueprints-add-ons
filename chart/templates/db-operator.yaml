@@ -14,14 +14,7 @@ spec:
     targetRevision: {{ .Values.targetRevision }}
     helm:
       values: |
-        {{- toYaml .Values.dbOperator | nindent 10 }}
-      parameters:
-        - name: auroraPostgresAdminSecret
-          value: {{ .Values.dbOperator.auroraPostgresAdminSecret }}
-        - name: auroraPostgresHost
-          value: {{ .Values.dbOperator.auroraPostgresHost }}
-        - name: auroraPostgresPort
-          value: {{ .Values.dbOperator.auroraPostgresPort }}
+      {{- toYaml .Values.dbOperator | nindent 8 }}
   destination:
     server: https://kubernetes.default.svc
     namespace: db-operator
@@ -34,4 +27,4 @@ spec:
         duration: 5s
         factor: 2
         maxDuration: 1m
-  {{- end -}}
+{{- end -}}
