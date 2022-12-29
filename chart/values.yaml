@@ -58,8 +58,8 @@ certManager:
   dnsZones:
   email:
 
-# Cert Manager Values
-certManagerIssuer:
+# Cert Manager Issuers Values
+certManagerIssuers:
   enable: false
   email:
 

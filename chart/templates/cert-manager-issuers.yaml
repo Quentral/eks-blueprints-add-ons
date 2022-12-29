@@ -1,4 +1,4 @@
-{{- if and (.Values.certManager) (.Values.certManager.enable) -}}
+{{- if and (.Values.certManagerIssuers) (.Values.certManagerIssuers.enable) -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -20,9 +20,9 @@ spec:
         {{- toYaml .Values.certManagerIssuers | nindent 10 }}
       parameters:
       - name: cert-manager-issuers.clusterIssuers[0].spec.acme.email
-        value: {{ .Values.certManager.email }}
+        value: {{ .Values.certManagerIssuers.email }}
       - name: cert-manager-issuers.clusterIssuers[1].spec.acme.email
-        value: {{ .Values.certManager.email }}
+        value: {{ .Values.certManagerIssuers.email }}
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager-issuers
