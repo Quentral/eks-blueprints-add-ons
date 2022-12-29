@@ -14,7 +14,6 @@ spec:
     targetRevision: {{ .Values.targetRevision }}
     helm:
       values: |
-        db-operator:
         {{- toYaml .Values.dbOperator | nindent 10 }}
       parameters:
         - name: auroraPostgresAdminSecret
