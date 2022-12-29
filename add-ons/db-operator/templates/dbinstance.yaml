@@ -1,0 +1,12 @@
+apiVersion: kci.rocks/v1alpha1
+kind: DbInstance
+metadata:
+  name: pg-db-01
+spec:
+  adminSecretRef:
+    Name: {{ .Values.global.auroraPostgresAdminSecret }}
+    Namespace: db-operator
+  engine: postgres
+  generic:
+    host: {{ .Values.global.auroraPostgresHost }}
+    port: {{ .Values.global.auroraPostgresPort }}

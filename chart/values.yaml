@@ -58,7 +58,7 @@ certManager:
   dnsZones:
   email:
 
-# Cert Manager Issuers Values
+# Cert Manager Values
 certManagerIssuers:
   enable: false
   email:
@@ -75,6 +75,12 @@ clusterAutoscaler:
 # Datadog Operator
 datadogOperator:
   enable: false
+
+dbOperator:
+  enable: false
+  auroraPostgresAdminSecret:
+  auroraPostgresHost:
+  auroraPostgresPort:
 
 # Strimzi Kafka Operator
 strimziKafkaOperator:

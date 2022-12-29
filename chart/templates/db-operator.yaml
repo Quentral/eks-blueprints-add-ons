@@ -1,0 +1,39 @@
+{{- if and (.Values.dbOperator) (.Values.dbOperator.enable) -}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: db-operator
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: {{ required "repoUrl value is required" .Values.repoUrl }}
+    path: add-ons/db-operator
+    targetRevision: {{ .Values.targetRevision }}
+    helm:
+      values: |
+        {{- toYaml .Values.dbOperator | nindent 10 }}
+      parameters:
+        - name: global.auroraPostgresAdminSecret
+          value: {{ .Values.dbOperator.auroraPostgresAdminSecret }}
+      parameters:
+        - name: global.auroraPostgresHost
+          value: {{ .Values.dbOperator.auroraPostgresHost }}
+      parameters:
+        - name: global.auroraPostgresPort
+          value: {{ .Values.dbOperator.auroraPostgresPort }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: db-operator
+  syncPolicy:
+    automated:
+      prune: true
+    retry:
+      limit: 1
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 1m
+  {{- end -}}
