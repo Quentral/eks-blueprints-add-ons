@@ -4,9 +4,9 @@ metadata:
   name: pg-db-01
 spec:
   adminSecretRef:
-    Name: {{ .Values.global.auroraPostgresAdminSecret }}
+    Name: {{ .Values.auroraPostgresAdminSecret }}
     Namespace: db-operator
   engine: postgres
   generic:
-    host: {{ .Values.global.auroraPostgresHost }}
-    port: {{ .Values.global.auroraPostgresPort }}
+    host: {{ .Values.auroraPostgresHost }}
+    port: {{ .Values.auroraPostgresPort }}

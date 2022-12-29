@@ -16,13 +16,11 @@ spec:
       values: |
         {{- toYaml .Values.dbOperator | nindent 10 }}
       parameters:
-        - name: global.auroraPostgresAdminSecret
+        - name: auroraPostgresAdminSecret
           value: {{ .Values.dbOperator.auroraPostgresAdminSecret }}
-      parameters:
-        - name: global.auroraPostgresHost
+        - name: auroraPostgresHost
           value: {{ .Values.dbOperator.auroraPostgresHost }}
-      parameters:
-        - name: global.auroraPostgresPort
+        - name: auroraPostgresPort
           value: {{ .Values.dbOperator.auroraPostgresPort }}
   destination:
     server: https://kubernetes.default.svc
