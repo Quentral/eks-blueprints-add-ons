@@ -78,9 +78,9 @@ datadogOperator:
 
 dbOperator:
   enable: false
-  auroraPostgresAdminSecret:
-  auroraPostgresHost:
-  auroraPostgresPort:
+  auroraPostgresAdminSecret: ""
+  auroraPostgresHost: ""
+  auroraPostgresPort: ""
 
 # Strimzi Kafka Operator
 strimziKafkaOperator:
