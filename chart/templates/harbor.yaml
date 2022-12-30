@@ -35,6 +35,7 @@ spec:
           value: {{ .Values.harbor.auroraPostgresHost }}
         - name: harbor.database.external.port
           value: {{ .Values.harbor.auroraPostgresPort }}
+          forceString: true
   destination:
     server: https://kubernetes.default.svc
     namespace: harbor
