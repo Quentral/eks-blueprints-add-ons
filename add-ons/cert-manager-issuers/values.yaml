@@ -1,23 +1,24 @@
-clusterIssuers:
-- name: letsencrypt-prod
-  spec:
-    acme:
-      email: user@example.com
-      server: https://acme-v02.api.letsencrypt.org/directory
-      privateKeySecretRef:
-        name: letsencrypt-prod-account-key
-      solvers:
-        - http01:
-            ingress:
-              class: nginx
-- name: letsencrypt-staging
-  spec:
-    acme:
-      email: user@example.com
-      server: https://acme-staging-v02.api.letsencrypt.org/directory
-      privateKeySecretRef:
-        name: letsencrypt-staging-account-key
-      solvers:
-        - http01:
-            ingress:
-              class: nginx
+cert-manager-issuers:
+  clusterIssuers:
+  - name: letsencrypt-prod
+    spec:
+      acme:
+        email: user@example.com
+        server: https://acme-v02.api.letsencrypt.org/directory
+        privateKeySecretRef:
+          name: letsencrypt-prod-account-key
+        solvers:
+          - http01:
+              ingress:
+                class: nginx
+  - name: letsencrypt-staging
+    spec:
+      acme:
+        email: user@example.com
+        server: https://acme-staging-v02.api.letsencrypt.org/directory
+        privateKeySecretRef:
+          name: letsencrypt-staging-account-key
+        solvers:
+          - http01:
+              ingress:
+                class: nginx
