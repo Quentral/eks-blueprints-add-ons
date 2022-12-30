@@ -28,7 +28,7 @@ spec:
         - name: harbor.imageChartStorage.s3.region
           value: {{ .Values.harbor.region }}
         - name: harbor.imageChartStorage.s3.accesskey
-          value: { { .Values.harbor.awsAccountS3AccessKeyId } }
+          value: {{ .Values.harbor.awsAccountS3AccessKeyId }}
         - name: harbor.imageChartStorage.s3.secretkey
           value: {{ .Values.harbor.awsAccountS3SecretAccessKey }}
         - name: harbor.database.external.host
