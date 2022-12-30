@@ -120,7 +120,7 @@ harbor:
   domain: ""
   registryS3Bucket: ""
   auroraPostgresHost: ""
-  auroraPostgresPort: ""
+  auroraPostgresPort: 5432
   region: ""
 
 # Nginx Values
