@@ -29,6 +29,7 @@ harbor:
   database:
     type: external
     external:
+      username: "registry"
       host:
       port:
       coreDatabase: "registry"
