@@ -112,6 +112,18 @@ gatekeeper:
   enable: false
   clusterName:
 
+# Harbor Values
+harbor:
+  enable: false
+  harborS3AwsAccessKeyId: ""
+  harborS3AwsSecretAccessKey: ""
+  harborDomain: ""
+  harborRegistryS3Bucket: ""
+  auroraPostgresHost: ""
+  auroraPostgresPort: ""
+  harborS3Region: ""
+
+
 # Nginx Values
 ingressNginx:
   enable: false
