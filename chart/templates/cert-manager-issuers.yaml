@@ -15,9 +15,6 @@ spec:
     path: add-ons/cert-manager-issuers
     targetRevision: {{ .Values.targetRevision }}
     helm:
-      values: |
-        cert-manager-issuers:
-        {{- toYaml .Values.certManagerIssuers | nindent 10 }}
       parameters:
       - name: cert-manager-issuers.clusterIssuers[0].spec.acme.email
         value: {{ .Values.certManagerIssuers.email }}
