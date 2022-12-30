@@ -115,14 +115,13 @@ gatekeeper:
 # Harbor Values
 harbor:
   enable: false
-  harborS3AwsAccessKeyId: ""
-  harborS3AwsSecretAccessKey: ""
-  harborDomain: ""
-  harborRegistryS3Bucket: ""
+  awsAccountS3AccessKeyId: ""
+  awsAccountS3SecretAccessKey: ""
+  domain: ""
+  registryS3Bucket: ""
   auroraPostgresHost: ""
   auroraPostgresPort: ""
-  harborS3Region: ""
-
+  region: ""
 
 # Nginx Values
 ingressNginx:

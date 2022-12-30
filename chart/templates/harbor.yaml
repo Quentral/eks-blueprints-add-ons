@@ -20,17 +20,21 @@ spec:
         {{- toYaml .Values.harbor | nindent 10 }}
       parameters:
         - name: harbor.ingress.hosts.core
-          value: {{ .Values.harbor.harborDomain }}
+          value: {{ .Values.harbor.domain }}
         - name: harbor.externalURL
-          value: "https://{{ .Values.harbor.harborDomain }}"
+          value: "https://{{ .Values.harbor.domain }}"
         - name: harbor.imageChartStorage.s3.bucket
-          value: {{ .Values.harbor.harborRegistryS3Bucket }}
+          value: {{ .Values.harbor.registryS3Bucket }}
         - name: harbor.imageChartStorage.s3.region
-          value: {{ .Values.harbor.harborS3Region }}
-        - name: harbor.imageChartStorage.s3.secretkey
-          value: {{ .Values.harbor.harborS3AwsSecretAccessKey }}
+          value: {{ .Values.harbor.region }}
         - name: harbor.imageChartStorage.s3.accesskey
-          value: {{ .Values.harbor.harborS3AwsAccessKeyId }}
+          value: { { .Values.harbor.awsAccountS3AccessKeyId } }
+        - name: harbor.imageChartStorage.s3.secretkey
+          value: {{ .Values.harbor.awsAccountS3SecretAccessKey }}
+        - name: harbor.database.external.host
+          value: {{ .Values.harbor.auroraPostgresHost }}
+        - name: harbor.database.external.port
+          value: {{ .Values.harbor.auroraPostgresPort }}
   destination:
     server: https://kubernetes.default.svc
     namespace: harbor
