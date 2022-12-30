@@ -19,8 +19,8 @@ spec:
         cert-manager-issuers:
         {{- toYaml .Values.certManagerIssuers | nindent 10 }}
       parameters:
-        - name: cert-manager-issuers.clusterIssuers[0].spec.acme.email
-          value: {{ .Values.certManagerIssuers.email }}
+      - name: cert-manager-issuers.clusterIssuers[0].spec.acme.email
+        value: {{ .Values.certManagerIssuers.email }}
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager-issuers
