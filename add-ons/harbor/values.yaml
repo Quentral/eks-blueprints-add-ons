@@ -1,4 +1,12 @@
 harbor:
+  persistence:
+    persistentVolumeClaim:
+      registry:
+        storageClass: efs-sc
+      chartmuseum:
+        storageClass: efs-sc
+      jobservice:
+        storageClass: efs-sc
   expose:
     type: ingress
     certSource: secret
@@ -30,7 +38,7 @@ harbor:
     type: external
     external:
       username: "registry"
-      host:
-      port:
+      host: "5432"
+      port: ""
       coreDatabase: "registry"
       existingSecret: "harbor-registry"
