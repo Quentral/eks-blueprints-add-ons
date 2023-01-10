@@ -26,6 +26,7 @@ awsCloudWatchMetrics:
 awsEfsCsiDriver:
   enable: false
   serviceAccountName:
+  fileSystemId:
 
 # AWS for Fluent Bit Values
 awsForFluentBit:

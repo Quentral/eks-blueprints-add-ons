@@ -5,3 +5,28 @@ aws-efs-csi-driver:
   node:
     serviceAccount:
       create: false
+
+  storageClasses:
+   - name: efs-sc
+     annotations:
+       storageclass.kubernetes.io/is-default-class: "true"
+     mountOptions:
+     - tls
+     parameters:
+       provisioningMode: efs-ap
+       fileSystemId: fs-1122aabb
+       directoryPerms: "700"
+       basePath: "/sc"
+     reclaimPolicy: Delete
+     volumeBindingMode: Immediate
+   - name: efs-community
+     mountOptions:
+       - tls
+     parameters:
+       provisioningMode: efs-ap
+       fileSystemId: fs-1122aabb
+       directoryPerms: "700"
+       basePath: "/community"
+     reclaimPolicy: Delete
+     volumeBindingMode: Immediate
+
