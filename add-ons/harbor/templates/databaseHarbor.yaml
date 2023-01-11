@@ -11,4 +11,6 @@ spec:
     enable: false # turn it to true when you want to use back up feature. currently only support postgres
     cron: "0 0 * * *"
   secretsTemplates:
+    CONNECTION_STRING: 'jdbc:{{`{{ .Protocol }}`}}://{{`{{ .UserName }}`}}:{{`{{ .Password }}`}}@{{`{{ .DatabaseHost }}`}}:{{`{{ .DatabasePort }}`}}/{{`{{ .DatabaseName }}`}}'
+    PASSWORD_USER: '{{`{{ .Password }}`}}_{{`{{ .UserName }}`}}'
     password: '{{`{{ .Password }}`}}'
