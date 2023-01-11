@@ -3,7 +3,7 @@ kind: "Database"
 metadata:
   name: "registry"
 spec:
-  secretName: harbor-registry # DB Operator will create secret with this name. it contains db name, user, password
+  secretName: harbor-pg-registry # DB Operator will create secret with this name. it contains db name, user, password
   instance: pg-db-01 # This has to be match with DbInstance name
   deletionProtected: true # Protection to not delete database when custom resource is deleted
   userName: registry

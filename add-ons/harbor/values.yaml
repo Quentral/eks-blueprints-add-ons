@@ -38,7 +38,7 @@ harbor:
     type: external
     external:
       username: "registry"
-      host: "5432"
+      host: ""
       port: ""
       coreDatabase: "registry"
-      existingSecret: "harbor-registry"
+      existingSecret: "harbor-pg-registry"
