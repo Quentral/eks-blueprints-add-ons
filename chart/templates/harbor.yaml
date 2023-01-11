@@ -23,13 +23,13 @@ spec:
           value: {{ .Values.harbor.domain }}
         - name: harbor.externalURL
           value: "https://{{ .Values.harbor.domain }}"
-        - name: harbor.imageChartStorage.s3.bucket
+        - name: harbor.persistence.imageChartStorage.s3.bucket
           value: {{ .Values.harbor.registryS3Bucket }}
-        - name: harbor.imageChartStorage.s3.region
+        - name: harbor.persistence.imageChartStorage.s3.region
           value: {{ .Values.harbor.region }}
-        - name: harbor.imageChartStorage.s3.accesskey
+        - name: harbor.persistence.imageChartStorage.s3.accesskey
           value: {{ .Values.harbor.awsAccountS3AccessKeyId }}
-        - name: harbor.imageChartStorage.s3.secretkey
+        - name: harbor.persistence.imageChartStorage.s3.secretkey
           value: {{ .Values.harbor.awsAccountS3SecretAccessKey }}
         - name: harbor.database.external.host
           value: {{ .Values.harbor.auroraPostgresHost }}
