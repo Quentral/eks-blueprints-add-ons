@@ -40,5 +40,5 @@ harbor:
       username: "registry"
       host: ""
       port: ""
-      coreDatabase: "registry"
+      coreDatabase: "harbor-registry"
       existingSecret: "harbor-pg-registry"
