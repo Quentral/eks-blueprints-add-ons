@@ -13,14 +13,14 @@ harbor:
     tls:
       secret:
         secretName: "harbor-tls"
-  ingress:
-    hosts:
-      core: core.harbor.quentrix.com
-    className: nginx
-    annotations:
-      cert-manager.io/clusterissuer: "letsencrypt-staging"
-      nginx.ingress.kubernetes.io/ssl-redirect: "true"
-      nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    ingress:
+      hosts:
+        core: core.harbor.quentrix.com
+      className: nginx
+      annotations:
+        cert-manager.io/clusterissuer: "letsencrypt-staging"
+        nginx.ingress.kubernetes.io/ssl-redirect: "true"
+        nginx.ingress.kubernetes.io/proxy-body-size: "0"
   externalURL: https://core.harbor.quentrix.com
   imageChartStorage:
     s3:

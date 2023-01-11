@@ -19,7 +19,7 @@ spec:
         harbor:
         {{- toYaml .Values.harbor | nindent 10 }}
       parameters:
-        - name: harbor.ingress.hosts.core
+        - name: harbor.expose.ingress.hosts.core
           value: {{ .Values.harbor.domain }}
         - name: harbor.externalURL
           value: "https://{{ .Values.harbor.domain }}"
