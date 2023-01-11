@@ -1,7 +1,3 @@
-templateConnectionString: "jdbc:{{ .Protocol }}://{{ .UserName }}:{{ .Password }}@{{ .DatabaseHost }}:{{ .DatabasePort }}/{{ .DatabaseName }}"
-templatePasswordUser: "{{ .Password }}_{{ .UserName }}"
-templatePassword: "{{ .Password }}"
-
 harbor:
   persistence:
     persistentVolumeClaim:

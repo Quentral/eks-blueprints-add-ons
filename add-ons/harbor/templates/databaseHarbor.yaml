@@ -10,7 +10,7 @@ spec:
   backup:
     enable: false # turn it to true when you want to use back up feature. currently only support postgres
     cron: "0 0 * * *"
-  secretsTemplates:
-    CONNECTION_STRING: {{ .templateConnectionString }}
-    PASSWORD_USER: {{ .templatePasswordUser }}
-    password: {{ .templatePassword }}
+  secretsTemplates:'
+    CONNECTION_STRING: '{{`{{ .templateConnectionString }}`}}'
+    PASSWORD_USER: '{{`{{  .templatePasswordUser }}`}}'
+    password: '{{`{{  .templatePassword }}`}}'
