@@ -22,7 +22,7 @@ harbor:
     certSource: secret
     tls:
       secret:
-        secretName: "harbor-tls"
+        secretName: "harbor-ingress"
     ingress:
       hosts:
         core: core.harbor.quentrix.com
