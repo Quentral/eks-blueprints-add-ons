@@ -6,7 +6,10 @@ harbor:
       chartmuseum:
         storageClass: efs-sc
       jobservice:
-        storageClass: efs-sc
+        jobLog:
+          storageClass: efs-sc
+        scanDataExports:
+          storageClass: efs-sc
     imageChartStorage:
       type: s3
       s3:
