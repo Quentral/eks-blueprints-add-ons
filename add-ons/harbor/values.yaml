@@ -19,10 +19,10 @@ harbor:
         bucket: bucketname
   expose:
     type: ingress
-    certSource: secret
     tls:
       secret:
-        secretName: "harbor-ingress"
+        secretName: "harbor-tls"
+      certSource: secret
     ingress:
       hosts:
         core: core.harbor.quentrix.com
