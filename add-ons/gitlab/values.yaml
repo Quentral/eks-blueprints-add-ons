@@ -4,8 +4,6 @@ gitlab_operator:
     hosts:
       https: true
       domain: example.com # use a real domain here
-      gitlab:
-        name: ""
     ingress:
       configureCertmanager: false
       provider: nginx
