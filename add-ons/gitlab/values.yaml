@@ -85,6 +85,16 @@ gitlab_operator:
     enabled: false
   registry:
     enabled: false
+  gitlab-runner:
+    install: true
+    rbac:
+      create: true
+    runners:
+      locked: false
+      config: |
+        [[runners]]
+          [runners.kubernetes]
+          image = "ubuntu:18.04"  
 
 s3_connect:
   region: ""
