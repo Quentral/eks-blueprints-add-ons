@@ -22,7 +22,7 @@ gitlab_operator:
         useSecret: true
         secret: "gitlab-pg"
         key: "password"
-      database: gitlab
+      database: gitlab-gitlab
       username: gitlab
     minio:
       enabled: false
