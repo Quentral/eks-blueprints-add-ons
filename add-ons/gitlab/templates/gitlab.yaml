@@ -5,5 +5,4 @@ metadata:
 spec:
   chart:
     version: {{ .Values.gitlab_version }}
-    values:
-    {{ toYaml .Values.gitlab_operator | indent 3 }}
+    values: {{- .Values.gitlab_operator | toYaml | trim | nindent 5 }}
