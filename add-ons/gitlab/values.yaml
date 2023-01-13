@@ -32,6 +32,9 @@ gitlab_operator:
       ingress:
         tls:
           secretName: "registry-gitlab-tls"
+    runner:
+      registrationToken:
+        secret: "gitlab-gitlab-runner-secret"
     appConfig:
       object_store:
         enabled: true
@@ -86,16 +89,9 @@ gitlab_operator:
   registry:
     enabled: false
   gitlab-runner:
-    install: true
-    rbac:
-      create: true
-    runners:
-      locked: false
-      config: |
-        [[runners]]
-          [runners.kubernetes]
-          image = "ubuntu:18.04"  
+    install: false
 
+# S3 bucket
 s3_connect:
   region: ""
   aws_access_key_id: ""
@@ -103,3 +99,12 @@ s3_connect:
 
 # https://gitlab.com/gitlab-org/cloud-native/gitlab-operator/-/blob/0.8.1/CHART_VERSIONS
 gitlab_version: "6.7.3"
+
+# Gitlab runner
+gitlab-runner:
+  gitlabUrl: ""
+  rbac:
+    create: true
+  runners:
+    secret: "gitlab-gitlab-runner-secret"
+    privileged: true
