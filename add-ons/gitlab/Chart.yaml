@@ -20,4 +20,4 @@ dependencies:
   repository: https://gitlab.com/api/v4/projects/18899486/packages/helm/stable
 - name: gitlab-runner
   version: 0.48.0
-  repository: https://gitlab.com/gitlab-org/charts
+  repository: https://charts.gitlab.io
