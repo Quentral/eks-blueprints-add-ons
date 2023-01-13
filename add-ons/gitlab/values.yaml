@@ -10,7 +10,7 @@ gitlab_operator:
       class: nginx
       annotations:
         cert-manager.io/cluster-issuer: "letsencrypt-staging"
-      enabled: false
+      enabled: true
       tls:
         enabled: true
         secretName: "global-gitlab-tls"
