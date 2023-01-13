@@ -1,0 +1,96 @@
+apiVersion: apps.gitlab.com/v1beta1
+kind: GitLab
+metadata:
+  name: gitlab
+spec:
+  chart:
+    version: "6.7.3" # https://gitlab.com/gitlab-org/cloud-native/gitlab-operator/-/blob/0.8.1/CHART_VERSIONS
+    values:
+      global:
+        edition: ce
+        hosts:
+          https: true
+          domain: example.com # use a real domain here
+          gitlab:
+            name: {{ .Values.global.hosts.gitlab.name }}
+        ingress:
+          configureCertmanager: false
+          provider: nginx
+          class: nginx
+          annotations:
+            cert-manager.io/cluster-issuer: "letsencrypt-staging"
+          enabled: false
+          tls:
+            enabled: true
+            secretName: "global-gitlab-tls"
+          path: /
+          pathType: Prefix
+        psql:
+          host: {{ .Values.global.psql.host }}
+          password:
+            useSecret: true
+            secret: "gitlab-pg"
+            key: "password"
+          database: gitlab
+          username: gitlab
+        minio:
+          enabled: false
+        grafana:
+          enable: false
+        appConfig:
+          object_store:
+            enabled: true
+            proxy_download: true
+            storage_options: {}
+            connection: {}
+              secret: "gitlab-s3"
+              key: "connection"
+          lfs:
+            enabled: true
+            bucket: git-lfs
+          artifacts:
+            enabled: true
+            bucket: qke-gitlab-artifacts
+          uploads:
+            enabled: true
+            bucket: gitlab-uploads
+          packages:
+            enabled: true
+            bucket: gitlab-packages
+          externalDiffs:
+            enabled: false
+            when:
+            bucket: gitlab-mr-diffs
+          terraformState:
+            enabled: false
+            bucket: gitlab-terraform-state
+          ciSecureFiles:
+            enabled: false
+            bucket: gitlab-ci-secure-files
+          dependencyProxy:
+            enabled: false
+            bucket: gitlab-dependency-proxy
+          backups:
+            bucket: gitlab-backups
+            tmpBucket: tmp
+        kas:
+          enabled: true         
+      nginx-ingress:
+        enabled: false
+      gitlab:
+        webservice:
+          ingress:
+            tls:
+              secretName: "gitlab-gitlab-tls"
+      registry:
+        ingress:
+          tls:
+            secretName: "registry-gitlab-tls"
+      posgresql:
+        install: false
+      prometheus:
+        install: false
+      upgradeCheck:
+        enabled: false
+      registry:
+       enabled: false

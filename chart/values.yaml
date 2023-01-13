@@ -108,6 +108,17 @@ forecastle:
 externalSecrets:
   enable: false
 
+# Gitlab Values
+gitlab:
+  enable: false
+  region: ""
+  awsAccountS3AccessKeyId: ""
+  awsAccountS3SecretAccessKey: ""
+  domain: ""
+  registryS3Bucket: ""
+  auroraPostgresHost: ""
+  auroraPostgresPort: "5432"
+
 # Gatekeeper Values
 gatekeeper:
   enable: false
