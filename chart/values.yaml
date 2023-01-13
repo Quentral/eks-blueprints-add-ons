@@ -115,9 +115,7 @@ gitlab:
   awsAccountS3AccessKeyId: ""
   awsAccountS3SecretAccessKey: ""
   domain: ""
-  registryS3Bucket: ""
   auroraPostgresHost: ""
-  auroraPostgresPort: "5432"
 
 # Gatekeeper Values
 gatekeeper:

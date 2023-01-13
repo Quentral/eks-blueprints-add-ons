@@ -13,9 +13,19 @@ spec:
     path: add-ons/gitlab
     targetRevision: {{ .Values.targetRevision }}
     helm:
-      values: |
-        gitlab:
-        {{- toYaml .Values.gitlab | nindent 10 }}
+      valueFiles:
+        - values.yaml
+      parameters:
+        - name: gitlab_operator.global.hosts.domain
+          value: {{ .Values.gitlab.domain }}
+        - name: gitlab_operator.global.psql.host
+          value: {{ .Values.gitlab.auroraPostgresHost }}
+        - name: s3_connect.region
+          value: {{ .Values.gitlab.region }}
+        - name: s3_connect.aws_access_key_id
+          value: {{ .Values.gitlab.awsAccountS3AccessKeyId }}
+        - name: s3_connect.aws_secret_access_key
+          value: {{ .Values.gitlab.awsAccountS3SecretAccessKey }}
   destination:
     server: https://kubernetes.default.svc
     namespace: gitlab
