@@ -27,7 +27,7 @@ spec:
         - name: s3_connect.aws_secret_access_key
           value: {{ .Values.gitlab.awsAccountS3SecretAccessKey }}
         - name: gitlab-runner.gitlabUrl
-          value: "https://gitlab.{{ .Values.harbor.domain }}"
+          value: "https://gitlab.{{ .Values.gitlab.domain }}"
   destination:
     server: https://kubernetes.default.svc
     namespace: gitlab
