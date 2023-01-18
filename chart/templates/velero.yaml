@@ -4,6 +4,8 @@ kind: Application
 metadata:
   name: velero
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
@@ -16,6 +18,13 @@ spec:
       values: |
         velero:
         {{- toYaml .Values.velero | nindent 10 }}
+      parameters:
+        - name: velero.serviceAccount.server.annotations."eks.amazonaws.com/role-arn"
+          value: "arn:aws:iam::{{ .Values.velero.serviceAccountName }}:role/eks-velero-backup"
+        - name: velero.configuration.backupStorageLocation.bucket
+          value: {{ .Values.velero.bucket }}
+        - name: velero.configuration.volumeSnapshotLocation.config
+          value: {{ .Values.velero.region }}
   destination:
     server: https://kubernetes.default.svc
     namespace: velero
