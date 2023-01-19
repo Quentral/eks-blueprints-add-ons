@@ -33,4 +33,9 @@ spec:
         duration: 5s
         factor: 2
         maxDuration: 5m
+  ignoreDifferences:
+  - group: monitoring.coreos.com
+    kind: ServiceMonitor
+    jqPathExpressions:
+    - .spec.endpoints[]?.relabelings[]?.action
 {{- end -}}
