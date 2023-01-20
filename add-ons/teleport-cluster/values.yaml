@@ -2,7 +2,3 @@ teleport-cluster:
     acme: true
     acmeEmail: "example@domain"
     clusterName: ""
-
-githubClientId: ""
-githubClientSecret: ""
-githubTeamsToRoles: []
