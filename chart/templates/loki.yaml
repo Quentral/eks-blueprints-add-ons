@@ -19,11 +19,11 @@ spec:
         loki:
         {{- toYaml .Values.loki | nindent 10 }}
       parameters:
-        - name: loki.storage.s3.accessKeyId
+        - name: loki.loki.storage.s3.accessKeyId
           value: {{ .Values.loki.awsAccountS3AccessKeyId }}
-        - name: loki.storage.s3.secretAccessKey
+        - name: loki.loki.storage.s3.secretAccessKey
           value: {{ .Values.loki.awsAccountS3SecretAccessKey }}
-        - name: loki.storage.s3.region
+        - name: loki.loki.storage.s3.region
           value: {{ .Values.loki.region }}
   destination:
     server: https://kubernetes.default.svc
