@@ -7,6 +7,10 @@ kube-prometheus-stack:
       etcd: false
       kubeScheduler: false
 
+  prometheusOperator:
+    admissionWebhooks:
+      failurePolicy: Ignore
+
   # Disable component scraping for the kube controller manager, etcd, and kube-scheduler
   # These components are not reachable on EKS
   kubeControllerManager:
