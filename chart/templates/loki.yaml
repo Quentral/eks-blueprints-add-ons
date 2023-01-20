@@ -1,0 +1,42 @@
+{{- if and (.Values.harbor) (.Values.harbor.enable) -}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: loki
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: {{ .Values.repoUrl }}
+    path: add-ons/loki
+    targetRevision: {{ .Values.targetRevision }}
+    helm:
+      values: |
+        loki:
+        {{- toYaml .Values.loki | nindent 10 }}
+      parameters:
+        - name: loki.storage.s3.accessKeyId
+          value: {{ .Values.loki.awsAccountS3AccessKeyId }}
+        - name: loki.storage.s3.secretAccessKey
+          value: {{ .Values.loki.awsAccountS3SecretAccessKey }}
+        - name: loki.storage.s3.region
+          value: {{ .Values.loki.region }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: loki
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
+    retry:
+      limit: 1
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 1m
+{{- end -}}

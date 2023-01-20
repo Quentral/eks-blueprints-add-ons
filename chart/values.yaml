@@ -160,6 +160,12 @@ keda:
   enable: false
   serviceAccountName:
 
+# Loki Values
+loki:
+  awsAccountS3AccessKeyId:
+  awsAccountS3SecretAccessKey:
+  region:
+
 # Metrics Server Values
 metricsServer:
   enable: false
