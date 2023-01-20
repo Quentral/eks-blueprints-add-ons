@@ -206,6 +206,8 @@ teleportCluster:
   enable: false
   acmeEmail:
   domain: ""
+  githubClientId: ""
+  githubClientSecret: ""
 
 # Teleport-kube-agent
 teleportKubeAgent:

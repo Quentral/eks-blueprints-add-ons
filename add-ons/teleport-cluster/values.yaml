@@ -2,3 +2,11 @@ teleport-cluster:
     acme: true
     acmeEmail: "example@domain"
     clusterName: ""
+
+githubClientId: ""
+githubClientSecret: ""
+githubTeamsToRoles:
+    - organization: Quentral
+      team: admin
+      roles:
+        - access
