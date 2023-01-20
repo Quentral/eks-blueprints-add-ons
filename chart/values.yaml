@@ -208,7 +208,7 @@ teleportCluster:
   domain: ""
 
 # Teleport-kube-agent
-teleportKubeagent:
+teleportKubeAgent:
   enable: false
 
 # Tetrate Istio Values
