@@ -28,7 +28,7 @@ spec:
         - name: githubClientSecret
           value: {{ .Values.teleportCluster.githubClientSecret }}
         {{- if .Values.teleportCluster.githubTeamsToRoles -}}
-        {{ - range $index, $organization :=  .Values.teleportCluster.githubTeamsToRoles }}
+          {{ - range $index, $organization :=  .Values.teleportCluster.githubTeamsToRoles }}
         - name: githubTeamsToRoles[{{ $index }}]
           value: {{ $organization }}
         {{ - end }}
