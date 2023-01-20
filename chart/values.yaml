@@ -208,6 +208,11 @@ teleportCluster:
   domain: ""
   githubClientId: ""
   githubClientSecret: ""
+  githubTeamsToRoles:
+    - organization: Quentral
+      team: admin
+      roles:
+        - access
 
 # Teleport-kube-agent
 teleportKubeAgent:

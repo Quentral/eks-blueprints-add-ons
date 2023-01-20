@@ -5,8 +5,4 @@ teleport-cluster:
 
 githubClientId: ""
 githubClientSecret: ""
-githubTeamsToRoles:
-    - organization: Quentral
-      team: admin
-      roles:
-        - access
+githubTeamsToRoles: []
