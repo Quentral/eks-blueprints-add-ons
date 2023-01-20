@@ -205,7 +205,7 @@ sparkOperator:
 teleportCluster:
   enable: false
   acmeEmail:
-  domain:
+  domain: ""
 
 # Teleport-kube-agent
 teleportKubeagent:

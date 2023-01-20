@@ -1,3 +1,4 @@
-acme: true
-acmeEmail: example@domain
-clusterName:  domain
+teleport-cluster:
+    acme: true
+    acmeEmail: "example@domain"
+    clusterName: ""

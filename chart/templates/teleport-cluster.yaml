@@ -19,9 +19,9 @@ spec:
         teleport-cluster:
         {{- toYaml .Values.teleportCluster | nindent 10 }}
       parameters:
-        - name: acmeEmail
+        - name: teleport-cluster.acmeEmail
           value: {{ .Values.teleportCluster.acmeEmail }}
-        - name: clusterName
+        - name: teleport-cluster.clusterName
           value: {{ .Values.teleportCluster.domain }}
   destination:
     server: https://kubernetes.default.svc
