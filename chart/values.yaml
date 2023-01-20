@@ -171,14 +171,6 @@ loki:
 metricsServer:
   enable: false
 
-# Teleport-cluster
-teleportCluster:
-  enable: false
-
-# Teleport-kube-agent
-teleportKubeagent:
-  enable: false
-
 # Ondat Values
 ondat:
   enable: false
@@ -207,6 +199,16 @@ prometheus:
 
 # Metrics Server Values
 sparkOperator:
+  enable: false
+
+# Teleport-cluster
+teleportCluster:
+  enable: false
+  acmeEmail:
+  domain:
+
+# Teleport-kube-agent
+teleportKubeagent:
   enable: false
 
 # Tetrate Istio Values
