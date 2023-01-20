@@ -1,4 +1,4 @@
-{{- if and (.Values.teleportKubeagent) (.Values.teleportKubeagent.enable) -}}
+{{- if and (.Values.teleportKubeAgent) (.Values.teleportKubeAgent.enable) -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -17,7 +17,7 @@ spec:
     helm:
       values: |
         teleport-kube-agent:
-        {{- toYaml .Values.teleportKubeagent | nindent 10 }}
+        {{- toYaml .Values.teleportKubeAgent | nindent 10 }}
   destination:
     server: https://kubernetes.default.svc
     namespace: teleport-kube-agent
