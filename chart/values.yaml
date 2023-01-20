@@ -162,6 +162,7 @@ keda:
 
 # Loki Values
 loki:
+  enable: false
   awsAccountS3AccessKeyId:
   awsAccountS3SecretAccessKey:
   region:

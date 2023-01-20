@@ -1,4 +1,4 @@
-{{- if and (.Values.harbor) (.Values.harbor.enable) -}}
+{{- if and (.Values.loki) (.Values.loki.enable) -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
