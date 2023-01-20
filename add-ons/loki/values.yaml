@@ -1,0 +1,12 @@
+loki:
+  storage:
+    s3:
+      accessKeyId:
+      secretAccessKey:
+      region:
+    bucketNames:
+      admin: qke-admin
+      ruler: qke-ruler
+      chuncks: qke-chunks
+  auth_enabled: false
+  
