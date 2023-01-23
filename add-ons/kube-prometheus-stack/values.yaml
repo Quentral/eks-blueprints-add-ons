@@ -11,8 +11,12 @@ kube-prometheus-stack:
   # https://lyz-code.github.io/blue-book/devops/prometheus/prometheus_troubleshooting/
   prometheusOperator:
     admissionWebhooks:
+      failurePolicy: "Ignore"
       enabled: true
       timeoutSeconds: 30
+      annotations:
+        argocd.argoproj.io/hook: PreSync
+        argocd.argoproj.io/hook-delete-policy: HookSucceeded
       patch:
         enabled: true
 
