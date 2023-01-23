@@ -9,11 +9,11 @@ kube-prometheus-stack:
 
   # Fix admissionWebhooks for EKS
   # https://lyz-code.github.io/blue-book/devops/prometheus/prometheus_troubleshooting/
-  #  prometheusOperator:
-  #    admissionWebhooks:
-  #      enabled: false
-  #      patch:
-  #        enabled: false
+  prometheusOperator:
+    admissionWebhooks:
+      enabled: true
+      patch:
+        enabled: false
 
   alertmanager:
     serviceMonitor:
