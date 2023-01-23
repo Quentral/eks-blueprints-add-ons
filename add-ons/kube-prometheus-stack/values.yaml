@@ -10,6 +10,8 @@ kube-prometheus-stack:
   # Fix admissionWebhooks for EKS
   # https://lyz-code.github.io/blue-book/devops/prometheus/prometheus_troubleshooting/
   prometheusOperator:
+    tls:
+      enabled: true
     admissionWebhooks:
       failurePolicy: Ignore
       enabled: true
