@@ -11,7 +11,7 @@ kube-prometheus-stack:
   # https://lyz-code.github.io/blue-book/devops/prometheus/prometheus_troubleshooting/
   prometheusOperator:
     admissionWebhooks:
-      failurePolicy: "Ignore"
+      failurePolicy: Ignore
       enabled: true
       timeoutSeconds: 30
       annotations:
