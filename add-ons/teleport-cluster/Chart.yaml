@@ -16,5 +16,5 @@ appVersion: "1.0"
 
 dependencies:
   - name: teleport-cluster
-    version: 11.1.3
+    version: 11.1.4
     repository: https://charts.releases.teleport.dev
