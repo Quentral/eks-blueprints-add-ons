@@ -16,15 +16,12 @@ kube-prometheus-stack:
       failurePolicy: Ignore
       enabled: false
       timeoutSeconds: 30
-      annotations:
-        argocd.argoproj.io/hook: PreSync
-        argocd.argoproj.io/hook-delete-policy: HookSucceeded
       patch:
         enabled: true
 
-  alertmanager:
-    serviceMonitor:
-      enableHttp2: false
+  #  alertmanager:
+  #    serviceMonitor:
+  #      enableHttp2: false
 
   # Disable component scraping for the kube controller manager, etcd, and kube-scheduler
   # These components are not reachable on EKS
