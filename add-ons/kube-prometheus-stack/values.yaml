@@ -11,7 +11,7 @@ kube-prometheus-stack:
   # https://lyz-code.github.io/blue-book/devops/prometheus/prometheus_troubleshooting/
   prometheusOperator:
     tls:
-      enabled: false
+      enabled: true
     admissionWebhooks:
       failurePolicy: Ignore
       enabled: true
