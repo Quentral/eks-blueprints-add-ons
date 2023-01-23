@@ -13,7 +13,7 @@ kube-prometheus-stack:
     admissionWebhooks:
       enabled: true
       patch:
-        enabled: false
+        enabled: true
 
   alertmanager:
     serviceMonitor:
