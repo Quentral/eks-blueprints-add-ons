@@ -72,6 +72,7 @@ gitlab_operator:
         bucket: qke-gitlab-backups
         tmpBucket: tmp
       omniauth:
+        enabled: true
         providers:
           secret: gitlab-github-auth
           key: provider
