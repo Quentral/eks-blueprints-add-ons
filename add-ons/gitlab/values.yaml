@@ -76,8 +76,7 @@ gitlab_operator:
         allowSingleSignOn: ['github']
         blockAutoCreatedUsers: true
         providers:
-          secret: gitlab-github-auth
-          key: provider
+          - secret: gitlab-github-auth
     kas:
       enabled: true
   nginx-ingress:
