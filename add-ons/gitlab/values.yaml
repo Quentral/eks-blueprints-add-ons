@@ -71,6 +71,10 @@ gitlab_operator:
       backups:
         bucket: qke-gitlab-backups
         tmpBucket: tmp
+      omniauth:
+        providers:
+          secret: gitlab-github-auth
+          key: provider
     kas:
       enabled: true
   nginx-ingress:
