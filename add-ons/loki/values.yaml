@@ -6,8 +6,8 @@ loki:
         secretAccessKey:
         region:
       bucketNames:
-        admin: qke-admin
-        ruler: qke-ruler
-        chuncks: qke-chunks
+        admin: qke-loki-admin
+        ruler: qke-loki-ruler
+        chuncks: qke-loki-chunks
     auth_enabled: false
   
