@@ -73,6 +73,8 @@ gitlab_operator:
         tmpBucket: tmp
       omniauth:
         enabled: true
+        allowSingleSignOn: ['github']
+        blockAutoCreatedUsers: true
         providers:
           secret: gitlab-github-auth
           key: provider
