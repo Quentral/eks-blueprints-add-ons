@@ -67,7 +67,7 @@ keycloakx:
     ingressClassName: nginx
     annotations:
       ingress.kubernetes.io/affinity: cookie
-      cert-manager.io/cluster-issuer: letsencrypt-staging
+      cert-manager.io/cluster-issuer: letsencrypt-prod
     rules:
       - host: keycloak.example.com
         paths:
