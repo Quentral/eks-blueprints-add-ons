@@ -8,6 +8,6 @@ loki:
       bucketNames:
         admin: qke-loki-admin
         ruler: qke-loki-ruler
-        chuncks: qke-loki-chunks
+        chunks: qke-loki-chunks
     auth_enabled: false
   
