@@ -147,6 +147,14 @@ grafana:
 vault:
   enable: false
 
+# Keykloak Values
+keycloak:
+  enable: false
+  domain: ""
+  auroraPostgresHost: ""
+  adminUser: ""
+  adminPassword: ""
+
 # Karpenter Values
 karpenter:
   enable: false

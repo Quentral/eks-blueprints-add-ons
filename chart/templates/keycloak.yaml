@@ -1,0 +1,47 @@
+{{- if and (.Values.keycloak) (.Values.keycloak.enable) -}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keycloak
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: {{ .Values.repoUrl }}
+    path: add-ons/keycloak
+    targetRevision: {{ .Values.targetRevision }}
+    helm:
+      valueFiles:
+        - values.yaml
+      parameters:
+        - name: keycloakx.ingress.rules[0].host
+          value: {{ .Values.keycloak.domain }}
+        - name: keycloakx.ingress.tls[0].hosts[0]
+          value: {{ .Values.keycloak.domain }}
+        - name: keykcloakx.database.hostname
+          value: {{ .Values.keycloak.auroraPostgresHost }}
+        - name: adminUser
+          value: {{ .Values.keycloak.adminUser }}
+        - name: adminPassword
+          value: {{ .Values.keycloak.adminPassword }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: keycloak
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    - Replace=true
+    retry:
+      limit: 1
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 1m
+{{- end -}}
