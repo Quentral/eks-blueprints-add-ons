@@ -106,4 +106,4 @@ keycloakx:
     hostname: postgresql
     port: 5432
     username: admin
-    database: keycloak
+    database: keycloak-keycloak
