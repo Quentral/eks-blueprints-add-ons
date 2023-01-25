@@ -22,7 +22,7 @@ spec:
           value: {{ .Values.keycloak.domain }}
         - name: keycloakx.ingress.tls[0].hosts[0]
           value: {{ .Values.keycloak.domain }}
-        - name: keykcloakx.database.hostname
+        - name: keycloakx.database.hostname
           value: {{ .Values.keycloak.auroraPostgresHost }}
         - name: adminUser
           value: {{ .Values.keycloak.adminUser }}
