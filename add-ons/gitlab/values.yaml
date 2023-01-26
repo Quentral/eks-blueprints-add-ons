@@ -36,6 +36,7 @@ gitlab_operator:
       registrationToken:
         secret: "gitlab-gitlab-runner-secret"
     appConfig:
+
       object_store:
         enabled: true
         proxy_download: true
@@ -73,7 +74,7 @@ gitlab_operator:
         tmpBucket: tmp
       omniauth:
         enabled: true
-        allowSingleSignOn: ['github']
+        allowSingleSignOn: ['openid_connect']
         blockAutoCreatedUsers: true
         providers:
           - secret: gitlab-github-auth
