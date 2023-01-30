@@ -1,12 +1,12 @@
 keycloakx:
+  # Replicas
   replicas: 1
 
-  # Deploy the latest verion
+  # Deploy the latest version
   image:
     tag: "20.0.1"
 
-  # start: create initial realm from secret which
-
+  # Startup: create initial realm from secret which
   extraVolumes: |
     - name: realm-secret
       secret:
@@ -17,6 +17,7 @@ keycloakx:
       mountPath: "/realm/"
       readOnly: true
 
+  # Startup: initial command
   command:
     - "/opt/keycloak/bin/kc.sh"
     - "--verbose"
@@ -30,19 +31,38 @@ keycloakx:
     - "--spi-events-listener-jboss-logging-error-level=warn"
     - "--import-realm"
 
+  # Extra envs
   extraEnv: |
     - name: ARGOCD_CLIENT_SECRET
-      value: secret
+      valueFrom:
+        secretKeyRef:
+          name: keycloak-admin-creds
+          key: argocdClientSecret    
     - name: GITLAB_CLIENT_SECRET
-      value: secret
+      valueFrom:
+        secretKeyRef:
+          name: keycloak-admin-creds
+          key: gitlabClientSecret    
     - name: HARBOR_CLIENT_SECRET
-      value: secret
+      valueFrom:
+        secretKeyRef:
+          name: keycloak-admin-creds
+          key: harborClientSecret    
     - name: GRAFANA_CLIENT_SECRET
-      value: secret
+      valueFrom:
+        secretKeyRef:
+          name: keycloak-admin-creds
+          key: grafanaClientSecret    
     - name: GITHUB_CLIENT_SECRET
-      value: secret
+      valueFrom:
+        secretKeyRef:
+          name: keycloak-admin-creds
+          key: githubClientSecret    
     - name: GITHUB_CLIENT_ID
-      value: client
+      valueFrom:
+        secretKeyRef:
+          name: keycloak-admin-creds
+          key: githubClientId    
     - name: KEYCLOAK_IMPORT
       value: /realm/realm.json
     - name: KC_PROXY
@@ -51,12 +71,12 @@ keycloakx:
       valueFrom:
         secretKeyRef:
           name: keycloak-admin-creds
-          key: username
+          key: adminUser
     - name: KEYCLOAK_ADMIN_PASSWORD
       valueFrom:
         secretKeyRef:
           name: keycloak-admin-creds
-          key: password
+          key: adminPassword
     - name: JAVA_OPTS_APPEND
       value: >-
         -XX:+UseContainerSupport
@@ -82,6 +102,7 @@ keycloakx:
         - keycloak.example.com
         secretName: keycloak-tls
 
+  # Limit resources
   resources:
     limits:
       memory: "2048Mi"
@@ -93,6 +114,7 @@ keycloakx:
   dbchecker:
     enabled: true
 
+  # External Database
   database:
     vendor: postgres
     existingSecret: keycloak-pg
@@ -100,3 +122,13 @@ keycloakx:
     port: 5432
     username: admin
     database: keycloak-keycloak
+
+# Secrets
+adminUser: admin
+adminPassword: password
+argocdClientSecret: secret
+gitlabClientSecret: secret
+harborClientSecret: secret
+grafanaClientSecret: secret
+githubClientSecret: secret
+githubClientId: client
