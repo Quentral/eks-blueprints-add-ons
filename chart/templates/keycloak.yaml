@@ -30,15 +30,15 @@ spec:
           value: {{ .Values.adminPassword }}
         - name: argocdClientSecret
           value: {{ .Values.keycloak.argocdClientSecret }}
-        - name: keycloakx.extraEnv[0].value
+        - name: gitlabClientSecret
           value: {{ .Values.keycloak.gitlabClientSecret }}
-        - name: keycloakx.extraEnv[1].value
+        - name: harborClientSecret
           value: {{ .Values.keycloak.harborClientSecret }}
-        - name: keycloakx.extraEnv[2].value
+        - name: grafanaClientSecret
           value: {{ .Values.keycloak.grafanaClientSecret }}
-        - name: keycloakx.extraEnv[3].value
+        - name: githubClientSecret
           value: {{ .Values.keycloak.githubClientSecret }}
-        - name: keycloakx.extraEnv[4].value
+        - name: githubClientId
           value: {{ .Values.keycloak.githubClientId }}
   destination:
     server: https://kubernetes.default.svc
