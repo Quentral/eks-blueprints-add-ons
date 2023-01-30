@@ -1,4 +1,4 @@
-{{- if and (.Values.pgweb) (.Values.gitlab.pgweb) -}}
+{{- if and (.Values.pgweb) (.Values.pgweb.enable) -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
