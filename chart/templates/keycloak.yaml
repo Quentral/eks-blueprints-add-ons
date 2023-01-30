@@ -25,9 +25,9 @@ spec:
         - name: keycloakx.database.hostname
           value: {{ .Values.keycloak.auroraPostgresHost }}
         - name: adminUser
-          value: {{ .Values.adminUser }}
+          value: {{ .Values.keycloak.adminUser }}
         - name: adminPassword
-          value: {{ .Values.adminPassword }}
+          value: {{ .Values.keycloak.adminPassword }}
         - name: argocdClientSecret
           value: {{ .Values.keycloak.argocdClientSecret }}
         - name: gitlabClientSecret
