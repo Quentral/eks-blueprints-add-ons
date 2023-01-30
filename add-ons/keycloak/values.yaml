@@ -5,28 +5,17 @@ keycloakx:
   image:
     tag: "20.0.1"
 
-  # start: create OpenShift realm which is required by EDP
-  extraInitContainers: |
-    - name: realm-provider
-      image: busybox
-      imagePullPolicy: IfNotPresent
-      command:
-        - sh
-      args:
-        - -c
-        - |
-          echo '{"realm": "openshift","enabled": true}' > /opt/keycloak/data/import/openshift.json
-      volumeMounts:
-        - name: realm
-          mountPath: /opt/keycloak/data/import
-
-  extraVolumeMounts: |
-    - name: realm
-      mountPath: /opt/keycloak/data/import
+  # start: create initial realm from secret which
 
   extraVolumes: |
-    - name: realm
-      emptyDir: {}
+    - name: realm-secret
+      secret:
+        secretName: realm-secret
+
+  extraVolumeMounts: |
+    - name: realm-secret
+      mountPath: "/realm/"
+      readOnly: true
 
   command:
     - "/opt/keycloak/bin/kc.sh"
@@ -42,6 +31,20 @@ keycloakx:
     - "--import-realm"
 
   extraEnv: |
+    - name: ARGOCD_CLIENT_SECRET
+      value: secret
+    - name: GITLAB_CLIENT_SECRET
+      value: secret
+    - name: HARBOR_CLIENT_SECRET
+      value: secret
+    - name: GRAFANA_CLIENT_SECRET
+      value: secret
+    - name: GITHUB_CLIENT_SECRET
+      value: secret
+    - name: GITHUB_CLIENT_ID
+      value: client
+    - name: KEYCLOAK_IMPORT
+      value: /realm/realm.json
     - name: KC_PROXY
       value: "passthrough"
     - name: KEYCLOAK_ADMIN
@@ -61,6 +64,7 @@ keycloakx:
         -Djava.awt.headless=true
         -Djgroups.dns.query={{ include "keycloak.fullname" . }}-headless
 
+
   # This block should be uncommented if you install Keycloak on Kubernetes
   ingress:
     enabled: true
@@ -77,17 +81,6 @@ keycloakx:
       - hosts:
         - keycloak.example.com
         secretName: keycloak-tls
-
-  # This block should be uncommented if you set Keycloak to OpenShift and change the host field
-  # route:
-  #   enabled: false
-  #   # Path for the Route
-  #   path: '/'
-  #   # Host name for the Route
-  #   host: "keycloak.<ROOT_DOMAIN>"
-  #   # TLS configuration
-  #   tls:
-  #     enabled: true
 
   resources:
     limits:

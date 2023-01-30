@@ -27,7 +27,18 @@ spec:
         - name: adminUser
           value: {{ .Values.keycloak.adminUser }}
         - name: adminPassword
-          value: {{ .Values.keycloak.adminPassword }}
+          value: {{ .Values.keycloak.argocdClientSecret }}
+        - name: keycloakx.extraEnv[0].value
+          value: {{ .Values.keycloak.gitlabClientSecret }}
+        - name: keycloakx.extraEnv[1].value
+          value: {{ .Values.keycloak.harborClientSecret }}
+        - name: keycloakx.extraEnv[2].value
+          value: {{ .Values.keycloak.grafanaClientSecret }}
+        - name: keycloakx.extraEnv[3].value
+          value: {{ .Values.keycloak.githubClientSecret }}
+        - name: keycloakx.extraEnv[4].value
+          value: {{ .Values.keycloak.githubClientId }}
+
   destination:
     server: https://kubernetes.default.svc
     namespace: keycloak
