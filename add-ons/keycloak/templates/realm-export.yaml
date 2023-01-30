@@ -1645,7 +1645,7 @@ stringData:
           "firstBrokerLoginFlowAlias": "first broker login",
           "config": {
             "clientSecret": "${GITHUB_CLIENT_SECRET}",
-            "clientId": "{GITHUB_CLIENT_ID}"
+            "clientId": "${GITHUB_CLIENT_ID}"
           }
         }
       ],
