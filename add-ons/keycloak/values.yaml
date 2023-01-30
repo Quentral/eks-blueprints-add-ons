@@ -14,7 +14,7 @@ keycloakx:
 
   extraVolumeMounts: |
     - name: realm-secret
-      mountPath: "/realm/"
+      mountPath: "/opt/keycloak/data/import/"
       readOnly: true
 
   # Startup: initial command
@@ -63,8 +63,6 @@ keycloakx:
         secretKeyRef:
           name: keycloak-admin-creds
           key: githubClientId    
-    - name: KEYCLOAK_IMPORT
-      value: /realm/realm.json
     - name: KC_PROXY
       value: "passthrough"
     - name: KEYCLOAK_ADMIN
