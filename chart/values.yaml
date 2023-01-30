@@ -154,6 +154,12 @@ keycloak:
   auroraPostgresHost: ""
   adminUser: ""
   adminPassword: ""
+  argocdClientSecret: ""
+  gitlabClientSecret: ""
+  harborClientSecret: ""
+  grafanaClientSecret: ""
+  githubClientSecret: ""
+  githubClientId: ""
 
 # Karpenter Values
 karpenter:

@@ -38,7 +38,6 @@ spec:
           value: {{ .Values.keycloak.githubClientSecret }}
         - name: keycloakx.extraEnv[4].value
           value: {{ .Values.keycloak.githubClientId }}
-
   destination:
     server: https://kubernetes.default.svc
     namespace: keycloak
