@@ -1,0 +1,34 @@
+{{- if and (.Values.pgweb) (.Values.gitlab.pgweb) -}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pgweb
+  namespace: pgweb
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: {{ .Values.repoUrl }}
+    path: add-ons/pgweb
+    targetRevision: {{ .Values.targetRevision }}
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: pgweb
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
+    retry:
+      limit: 1
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 1m
+{{- end -}}

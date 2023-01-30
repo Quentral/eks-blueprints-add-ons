@@ -211,6 +211,10 @@ prometheus:
   roleArn:
   ampWorkspaceUrl:
 
+# Pgweb Values
+pgweb:
+  enable: false
+
 # Metrics Server Values
 sparkOperator:
   enable: false
