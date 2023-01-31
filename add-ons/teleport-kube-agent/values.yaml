@@ -1,4 +1,7 @@
 teleport-kube-agent:
+  # Address of the teleport proxy with port (usually :3080).
+  proxyAddr: ""
+  
   # Specify how to join the Teleport cluster
   joinParams:
     # Supported join methods are "token", "ec2", "iam".
