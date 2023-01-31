@@ -1,0 +1,25 @@
+teleport-kube-agent:
+  # Specify how to join the Teleport cluster
+  joinParams:
+    # Supported join methods are "token", "ec2", "iam".
+    # method "token", is equivalent to using authToken to join a cluster
+    method: "token"
+
+    # Leave empty only when method is "token" and the secret
+    # "teleport-kube-agent-join-token" has been created before and
+    # contains a valid join token.
+    tokenName: "cd8afb66a17dad8ca2ae67731802598e"
+
+  apps:
+  - name: gitlab
+    uri: https://gitlab.kube-gitlab.quentrix.com
+  - name: harbor
+    uri: https://harbor.kube.quentrix.com
+  - name: argocd
+    uri: https://argo-cd-argocd-server.argocd
+  - name: grafana
+    uri: http://kube-prometheus-stack-grafana.kube-prometheus-stack.svc.cluster.local
+    rewrite:
+      headers:
+        - "Host: grafana.tele.quentrix.com"
+        - "Origin: https://grafana.tele.quentrix.com"

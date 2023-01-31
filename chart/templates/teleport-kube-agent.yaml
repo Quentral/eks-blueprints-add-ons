@@ -5,7 +5,7 @@ metadata:
   name: teleport-kube-agent
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "4"
+    argocd.argoproj.io/sync-wave: "5"
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
@@ -20,7 +20,7 @@ spec:
         {{- toYaml .Values.teleportKubeAgent | nindent 10 }}
   destination:
     server: https://kubernetes.default.svc
-    namespace: teleport-kube-agent
+    namespace: teleport-cluster
   syncPolicy:
     automated:
       prune: true

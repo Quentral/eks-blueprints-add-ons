@@ -2,3 +2,8 @@ teleport-cluster:
     acme: true
     acmeEmail: "example@domain"
     clusterName: ""
+
+    # Configuration of the optional Teleport operator
+    operator:
+        # Set enabled to true to add the Kubernetes Teleport Operator
+        enabled: true
