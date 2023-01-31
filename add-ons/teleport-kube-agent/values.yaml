@@ -2,7 +2,7 @@ teleport-kube-agent:
 
   # Join token for the cluster. `joinParams` can also pass the join token,
   # but supports more join methods and takes precedence if set.
-  authToken: "e97bafdda53289828a91882f34fac73e"
+  authToken: "e97bafrta53289828a91882f34fac73e"
 
   # Address of the teleport proxy with port (usually :3080).
   proxyAddr: "https://tele.quentrix.com:443"
