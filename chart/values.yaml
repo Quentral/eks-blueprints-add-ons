@@ -4,6 +4,7 @@ targetRevision: HEAD
 region: ''
 account: ''
 clusterName: ''
+rootDomain: ''
 
 # Agones Values
 agones:
@@ -114,7 +115,6 @@ gitlab:
   region: ""
   awsAccountS3AccessKeyId: ""
   awsAccountS3SecretAccessKey: ""
-  domain: ""
   auroraPostgresHost: ""
 
 # Gatekeeper Values
@@ -127,7 +127,6 @@ harbor:
   enable: false
   awsAccountS3AccessKeyId: ""
   awsAccountS3SecretAccessKey: ""
-  domain: ""
   registryS3Bucket: ""
   auroraPostgresHost: ""
   auroraPostgresPort: "5432"
@@ -223,7 +222,6 @@ sparkOperator:
 teleportCluster:
   enable: false
   acmeEmail:
-  domain: ""
 
 # Teleport-kube-agent
 teleportKubeAgent:
