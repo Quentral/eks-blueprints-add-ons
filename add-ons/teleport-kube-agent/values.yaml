@@ -19,6 +19,10 @@ teleport-kube-agent:
     # contains a valid join token.
     tokenName: "cd8afb66a17dad8ca2ae67731802598e"
 
+  # When set to true, the agent will skip the verification of proxy TLS certificate.
+  insecureSkipProxyTLSVerify: true
+
+  # Apps
   apps:
   - name: gitlab
     uri: https://gitlab.kube-gitlab.quentrix.com
