@@ -44,3 +44,17 @@ kube-prometheus-stack:
            resources:
              requests:
                storage: 20Gi
+
+  grafana:
+    grafana.ini:
+      auth.generic_oauth:
+        enabled: true
+        name: Keycloak
+        allow_sign_up: true
+        scopes: profile,email,groups
+        client_id: grafana
+        client_secret: g0TAzmc3wbN2UfEC13gE77OOnYQrNG1Uf
+        auth_url: https://keycloak.kube.quentrix.com/auth/realms/Quentral/protocol/openid-connect/auth
+        token_url: https://keycloak.kube.quentrix.com/auth/realms/Quentral/protocol/openid-connect/token
+        api_url: https://keycloak.kube.quentrix.com/auth/realms/Quentral/protocol/openid-connect/userinfo
+        role_attribute_path: contains(groups[*], 'grafana-admin') && 'Admin' || contains(groups[*], 'grafana-user') && 'Editor' || 'Viewer'
