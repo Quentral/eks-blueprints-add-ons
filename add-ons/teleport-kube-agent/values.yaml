@@ -7,7 +7,7 @@ teleport-kube-agent:
 
   # Join token for the cluster. `joinParams` can also pass the join token,
   # but supports more join methods and takes precedence if set.
-  authToken: "cd8afb66a17dad8ca2ae67731802598e"
+  authToken: "e97bafdda53289828a91882f34fac73e"
 
   # Comma-separated list of roles to enable (any of: kube,db,app)
   roles: "app"
