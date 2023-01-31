@@ -8,7 +8,7 @@ teleport-kube-agent:
   proxyAddr: "https://tele.quentrix.com:443"
 
   # Comma-separated list of roles to enable (any of: kube,db,app)
-  roles: "app"
+  roles: "app,node"
 
   # When set to true, the agent will skip the verification of proxy TLS certificate.
   insecureSkipProxyTLSVerify: true
