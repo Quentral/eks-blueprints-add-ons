@@ -60,3 +60,7 @@ kube-prometheus-stack:
         role_attribute_path: contains(groups[*], 'grafana-admin') && 'Admin' || contains(groups[*], 'grafana-user') && 'Editor' || 'Viewer'
       server:
         root_url: https://grafana.tele.quentrix.com
+      additionalDataSources:
+      - name: loki
+      - type: loki
+      - url: http://loky-read.loki:3100
