@@ -1,13 +1,11 @@
 teleport-kube-agent:
-  # Address of the teleport proxy with port (usually :3080).
-  proxyAddr: "https://tele.quentrix.com:443"
-
-  # Name for this kubernetes cluster to be used by teleport users.
-  kubeClusterName: "tele.quentrix.com"
 
   # Join token for the cluster. `joinParams` can also pass the join token,
   # but supports more join methods and takes precedence if set.
   authToken: "e97bafdda53289828a91882f34fac73e"
+
+  # Address of the teleport proxy with port (usually :3080).
+  proxyAddr: "https://tele.quentrix.com:443"
 
   # Comma-separated list of roles to enable (any of: kube,db,app)
   roles: "app"
