@@ -1,6 +1,9 @@
 teleport-kube-agent:
   # Address of the teleport proxy with port (usually :3080).
   proxyAddr: "https://tele.quentrix.com:443"
+
+  # Name for this kubernetes cluster to be used by teleport users.
+  kubeClusterName: "tele.quentrix.com"
   
   # Specify how to join the Teleport cluster
   joinParams:
