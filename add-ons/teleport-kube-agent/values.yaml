@@ -15,8 +15,8 @@ teleport-kube-agent:
 
   # Apps
   apps:
-  - name: gitlab
-    uri: https://gitlab.kube-gitlab.quentrix.com
+  - name: kubecost
+    uri: http://kubecost-cost-analyzer.kubecost.svc.cluster.local
   - name: harbor
     uri: https://harbor.kube.quentrix.com
   - name: argocd
