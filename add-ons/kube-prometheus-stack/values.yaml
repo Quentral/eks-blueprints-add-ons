@@ -62,5 +62,5 @@ kube-prometheus-stack:
         root_url: https://grafana.tele.quentrix.com
       additionalDataSources:
       - name: loki
-      - type: loki
-      - url: http://loky-read.loki:3100
+        type: loki
+        url: http://loki-read.loki:3100
