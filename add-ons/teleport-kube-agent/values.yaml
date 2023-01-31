@@ -4,6 +4,9 @@ teleport-kube-agent:
 
   # Name for this kubernetes cluster to be used by teleport users.
   kubeClusterName: "tele.quentrix.com"
+
+  # Comma-separated list of roles to enable (any of: kube,db,app)
+  roles: "app"
   
   # Specify how to join the Teleport cluster
   joinParams:
