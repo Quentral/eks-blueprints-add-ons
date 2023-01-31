@@ -11,4 +11,5 @@ spec:
     - organization: Quentral
       roles:
         - access
+        - editor
       team: admin
