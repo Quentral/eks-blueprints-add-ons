@@ -1,6 +1,6 @@
 teleport-kube-agent:
   # Address of the teleport proxy with port (usually :3080).
-  proxyAddr: ""
+  proxyAddr: "https://tele.quentrix.com:443"
   
   # Specify how to join the Teleport cluster
   joinParams:
