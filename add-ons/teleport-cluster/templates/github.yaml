@@ -6,9 +6,7 @@ spec:
   client_id: d2e18ff9d8eb18e9f7c5
   client_secret: 05cb77b60a9cdcaeff09030fa35ea01804a5f25d
   display: Github
-  endpoint_url: ""
   redirect_url: https://tele.quentrix.com/v1/webapi/github/callback
-  teams_to_logins: null
   teams_to_roles:
     - organization: Quentral
       roles:
