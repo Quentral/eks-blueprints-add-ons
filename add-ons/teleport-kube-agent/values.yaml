@@ -16,7 +16,7 @@ teleport-kube-agent:
   # Apps
   apps:
   - name: kubecost
-    uri: http://kubecost-cost-analyzer.kubecost.svc.cluster.local
+    uri: http://kubecost-cost-analyzer.kubecost.svc.cluster.local:9090
   - name: harbor
     uri: https://harbor.kube.quentrix.com
   - name: argocd
