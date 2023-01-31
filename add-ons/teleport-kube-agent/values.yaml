@@ -5,19 +5,12 @@ teleport-kube-agent:
   # Name for this kubernetes cluster to be used by teleport users.
   kubeClusterName: "tele.quentrix.com"
 
+  # Join token for the cluster. `joinParams` can also pass the join token,
+  # but supports more join methods and takes precedence if set.
+  authToken: "cd8afb66a17dad8ca2ae67731802598e"
+
   # Comma-separated list of roles to enable (any of: kube,db,app)
   roles: "app"
-  
-  # Specify how to join the Teleport cluster
-  joinParams:
-    # Supported join methods are "token", "ec2", "iam".
-    # method "token", is equivalent to using authToken to join a cluster
-    method: "token"
-
-    # Leave empty only when method is "token" and the secret
-    # "teleport-kube-agent-join-token" has been created before and
-    # contains a valid join token.
-    tokenName: "cd8afb66a17dad8ca2ae67731802598e"
 
   # When set to true, the agent will skip the verification of proxy TLS certificate.
   insecureSkipProxyTLSVerify: true
