@@ -64,3 +64,4 @@ kube-prometheus-stack:
       - name: loki
         type: loki
         url: http://loki-read.loki:3100
+        access: proxy
