@@ -47,6 +47,9 @@ kube-prometheus-stack:
 
   grafana:
     forceDeployDatasources: true
+    sidecar:
+      datasources:
+        isDefaultDatasource: false
     grafana.ini:
       auth.generic_oauth:
         enabled: true
@@ -63,6 +66,7 @@ kube-prometheus-stack:
         root_url: https://grafana.tele.quentrix.com
     additionalDataSources:
     - name: loki
+      isDefault: true
       type: loki
       url: http://loki-read.loki:3100
       access: proxy
