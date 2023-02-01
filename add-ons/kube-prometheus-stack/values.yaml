@@ -46,6 +46,7 @@ kube-prometheus-stack:
                storage: 20Gi
 
   grafana:
+    forceDeployDatasources: true
     grafana.ini:
       auth.generic_oauth:
         enabled: true
@@ -60,8 +61,8 @@ kube-prometheus-stack:
         role_attribute_path: contains(groups[*], 'grafana-admin') && 'Admin' || contains(groups[*], 'grafana-user') && 'Editor' || 'Viewer'
       server:
         root_url: https://grafana.tele.quentrix.com
-      additionalDataSources:
-      - name: loki
-        type: loki
-        url: http://loki-read.loki:3100
-        access: proxy
+    additionalDataSources:
+    - name: loki
+      type: loki
+      url: http://loki-read.loki:3100
+      access: proxy
