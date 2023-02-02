@@ -22,7 +22,7 @@ spec:
         - name: teleport-cluster.acmeEmail
           value: {{ .Values.teleportCluster.acmeEmail }}
         - name: teleport-cluster.clusterName
-          value: {{ .Values.teleportCluster.domain }}
+          value: tele.{{ .Values.rootDomain }}
   destination:
     server: https://kubernetes.default.svc
     namespace: teleport-cluster

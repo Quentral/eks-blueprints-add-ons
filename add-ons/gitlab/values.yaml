@@ -36,7 +36,6 @@ gitlab_operator:
       registrationToken:
         secret: "gitlab-gitlab-runner-secret"
     appConfig:
-
       object_store:
         enabled: true
         proxy_download: true
@@ -115,3 +114,7 @@ gitlab-runner:
   runners:
     secret: "gitlab-gitlab-runner-secret"
     privileged: true
+
+# Gitlab keycloak auth
+keycloak_client_secret: ""
+keycloak_subdomain: ""
