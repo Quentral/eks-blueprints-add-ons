@@ -19,9 +19,9 @@ spec:
         - values.yaml
       parameters:
         - name: keycloakx.ingress.rules[0].host
-          value: keycloak.{{ .Values.rootDomain }}
+          value: keycloak.{{ .Values.baseDomain }}
         - name: keycloakx.ingress.tls[0].hosts[0]
-          value: keycloak.{{ .Values.rootDomain }}
+          value: keycloak.{{ .Values.baseDomain }}
         - name: keycloakx.database.hostname
           value: {{ .Values.keycloak.auroraPostgresHost }}
         - name: adminUser

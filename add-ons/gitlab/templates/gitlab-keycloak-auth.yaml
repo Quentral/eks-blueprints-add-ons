@@ -17,9 +17,9 @@ stringData:
       client_auth_method: query
       discovery: true
       response_type: code
-      issuer: https://keycloak.{{ .Values.keycloak_subdomain }}/auth/realms/Quentral
+      issuer: https://{{ .Values.keycloak_domain }}/auth/realms/Quentral
       uid_field: preferred_username
       client_options:
         identifier: gitlab
         secret: {{ .Values.keycloak_client_secret }}
-        redirect_uri: https://gitlab.{{ .Values.gitlab_operator.global.hosts.domain }}/users/auth/openid_connect/callback
+        redirect_uri: https://{{ .Values.gitlab_domain }}/users/auth/openid_connect/callback

@@ -2,10 +2,10 @@ teleport-kube-agent:
 
   # Join token for the cluster. `joinParams` can also pass the join token,
   # but supports more join methods and takes precedence if set.
-  authToken: "e97bafrta53289828a91882f34fac73e"
+  authToken: ""
 
   # Address of the teleport proxy with port (usually :3080).
-  proxyAddr: "https://tele.quentrix.com:443"
+  proxyAddr: "https://tele.example.com:443"
 
   # Comma-separated list of roles to enable (any of: kube,db,app)
   roles: "app,node"
@@ -17,8 +17,6 @@ teleport-kube-agent:
   apps:
   - name: kubecost
     uri: http://kubecost-cost-analyzer.kubecost.svc.cluster.local:9090
-  - name: harbor
-    uri: https://harbor.kube.quentrix.com
   - name: argocd
     uri: https://argo-cd-argocd-server.argocd
   - name: grafana

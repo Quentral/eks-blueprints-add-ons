@@ -105,6 +105,7 @@ s3_connect:
 
 # https://gitlab.com/gitlab-org/cloud-native/gitlab-operator/-/blob/0.8.1/CHART_VERSIONS
 gitlab_version: "6.7.3"
+gitlab_domain: ""
 
 # Gitlab runner
 gitlab-runner:
@@ -116,5 +117,6 @@ gitlab-runner:
     privileged: true
 
 # Gitlab keycloak auth
+keycloak_prefix_name: ""
 keycloak_client_secret: ""
-keycloak_subdomain: ""
+keycloak_domain: ""
