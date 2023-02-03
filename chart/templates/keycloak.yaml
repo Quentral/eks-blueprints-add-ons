@@ -5,7 +5,7 @@ metadata:
   name: keycloak
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "12"
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
@@ -19,9 +19,9 @@ spec:
         - values.yaml
       parameters:
         - name: keycloakx.ingress.rules[0].host
-          value: keycloak.{{ .Values.baseDomain }}
+          value: {{ .Values.keycloak.domain }}
         - name: keycloakx.ingress.tls[0].hosts[0]
-          value: keycloak.{{ .Values.baseDomain }}
+          value: {{ .Values.keycloak.domain }}
         - name: keycloakx.database.hostname
           value: {{ .Values.keycloak.auroraPostgresHost }}
         - name: adminUsername

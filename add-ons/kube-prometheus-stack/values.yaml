@@ -68,5 +68,5 @@ kube-prometheus-stack:
     - name: loki
       isDefault: true
       type: loki
-      url: http://loki-read.loki:3100
+      url: http://loki-read.monitoring.svc.cluster.local:3100
       access: proxy

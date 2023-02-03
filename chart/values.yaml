@@ -161,7 +161,7 @@ keycloak:
   enable: false
   domain: ""
   auroraPostgresHost: ""
-  adminUser: ""
+  adminUsername: ""
   adminPassword: ""
   argocdClientSecret: ""
   gitlabClientSecret: ""

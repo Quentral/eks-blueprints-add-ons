@@ -15,13 +15,13 @@ teleport-kube-agent:
 
   # Apps
   apps:
-  - name: kubecost
-    uri: http://kubecost-cost-analyzer.kubecost.svc.cluster.local:9090
-  - name: argocd
-    uri: https://argo-cd-argocd-server.argocd
-  - name: grafana
-    uri: http://kube-prometheus-stack-grafana.kube-prometheus-stack.svc.cluster.local
-    rewrite:
-      headers:
-        - "Host: grafana.tele.quentrix.com"
-        - "Origin: https://grafana.tele.quentrix.com"
+    - name: kubecost
+      uri: http://kubecost-cost-analyzer.kubecost.svc.cluster.local:9090
+    - name: argocd
+      uri: https://argo-cd-argocd-server.argocd.svc.cluster.local
+    - name: grafana
+      uri: http://kube-prometheus-stack-grafana.monitoring.svc.cluster.local
+      rewrite:
+        headers:
+          - "Host: grafana.tele.quentrix.com"
+          - "Origin: https://grafana.tele.quentrix.com"
