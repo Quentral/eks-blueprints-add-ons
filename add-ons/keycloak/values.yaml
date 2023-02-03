@@ -69,7 +69,7 @@ keycloakx:
       valueFrom:
         secretKeyRef:
           name: keycloak-admin-creds
-          key: adminUser
+          key: adminUsername
     - name: KEYCLOAK_ADMIN_PASSWORD
       valueFrom:
         secretKeyRef:
