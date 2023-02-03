@@ -28,7 +28,7 @@ spec:
         - name: teleport_github_connector_client_secret
           value: {{ .Values.teleportCluster.githubConnectorClientSecret }}
         - name: teleport_domain
-          value: {{ .Values.teleportDomain }}
+          value: {{ .Values.teleportCluster.teleportDomain }}
   destination:
     server: https://kubernetes.default.svc
     namespace: teleport-cluster
