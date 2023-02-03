@@ -5,11 +5,11 @@ region: ''
 account: ''
 clusterName: ''
 baseDomain: ''
-
 argocdPrefixName: ''
+keycloakPrefixName: ''
+teleportPrefixName: ''
 harborPrefixName: ''
 gitlabPrefixName: ''
-keycloakPrefixName: ''
 grafanaPrefixName: ''
 kubecostPrefixName: ''
 
