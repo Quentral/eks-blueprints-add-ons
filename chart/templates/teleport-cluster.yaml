@@ -22,7 +22,7 @@ spec:
         - name: teleport-cluster.acmeEmail
           value: {{ .Values.teleportCluster.acmeEmail }}
         - name: teleport-cluster.clusterName
-          value: {{ .Values.clusterName }}
+          value: {{ .Values.teleportCluster.clusterName }}
         - name: teleport_github_connector_client_id
           value: {{ .Values.teleportCluster.githubConnectorClientId }}
         - name: teleport_github_connector_client_secret
