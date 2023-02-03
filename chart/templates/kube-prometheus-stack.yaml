@@ -31,7 +31,7 @@ spec:
           value: {{ .Values.kubePrometheusStack.serverRootUrl }}
   destination:
     server: https://kubernetes.default.svc
-    namespace: kube-prometheus-stack
+    namespace: monitoring
   syncPolicy:
     automated:
       prune: true
