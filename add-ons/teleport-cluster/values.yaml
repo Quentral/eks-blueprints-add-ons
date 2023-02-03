@@ -7,6 +7,8 @@ teleport-cluster:
     operator:
         # Set enabled to true to add the Kubernetes Teleport Operator
         enabled: true
+    authentication:
+        type: github
 
 # Github connector
 teleport_github_connector_client_id: ""

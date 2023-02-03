@@ -5,9 +5,13 @@ region: ''
 account: ''
 clusterName: ''
 baseDomain: ''
+
+argocdPrefixName: ''
 harborPrefixName: ''
 gitlabPrefixName: ''
 keycloakPrefixName: ''
+grafanaPrefixName: ''
+kubecostPrefixName: ''
 
 # Agones Values
 agones:
@@ -308,6 +312,8 @@ reloader:
 # Kube Prometheus Stack
 kubePrometheusStack:
   enable: false
+  grafanaClientSecret: ""
+  serverRootUrl: ""
 
 # Kyverno Values
 kyverno:

@@ -9,7 +9,7 @@ gitlab_operator:
       provider: nginx
       class: nginx
       annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        cert-manager.io/cluster-issuer: "letsencrypt-staging"
       enabled: true
       tls:
         enabled: true

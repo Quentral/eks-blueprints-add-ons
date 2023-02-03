@@ -24,8 +24,8 @@ spec:
           value: keycloak.{{ .Values.baseDomain }}
         - name: keycloakx.database.hostname
           value: {{ .Values.keycloak.auroraPostgresHost }}
-        - name: adminUser
-          value: {{ .Values.keycloak.adminUser }}
+        - name: adminUsername
+          value: {{ .Values.keycloak.adminUsername }}
         - name: adminPassword
           value: {{ .Values.keycloak.adminPassword }}
         - name: argocdClientSecret

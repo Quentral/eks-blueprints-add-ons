@@ -18,6 +18,17 @@ spec:
       values: |
         kube-prometheus-stack:
         {{- toYaml .Values.kubePrometheusStack | nindent 10 }}
+      parameters:
+        - name: kube-prometheus-stack.grafana."grafana.ini"."auth.generic_oauth".client_secret
+          value: {{ .Values.kubePrometheusStack.grafanaClientSecret }}
+        - name: kube-prometheus-stack.grafana."grafana.ini"."auth.generic_oauth".auth_url
+          value: https://{{ .Values.keycloakPrefixName }}.{{ .Values.keycloakPrefixName }}/auth/realms/Quentral/protocol/openid-connect/auth
+        - name: kube-prometheus-stack.grafana."grafana.ini"."auth.generic_oauth".token_url
+          value: https://{{ .Values.keycloakPrefixName }}.{{ .Values.keycloakPrefixName }}/auth/realms/Quentral/protocol/openid-connect/token
+        - name: kube-prometheus-stack.grafana."grafana.ini"."auth.generic_oauth".api_url
+          value: https://{{ .Values.keycloakPrefixName }}.{{ .Values.keycloakPrefixName }}/auth/realms/Quentral/protocol/openid-connect/userinfo
+        - name: kube-prometheus-stack.grafana."grafana.ini".server.root_url
+          value: {{ .Values.kubePrometheusStack.serverRootUrl }}
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-prometheus-stack
