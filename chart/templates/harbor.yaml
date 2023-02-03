@@ -20,9 +20,9 @@ spec:
         {{- toYaml .Values.harbor | nindent 10 }}
       parameters:
         - name: harbor.expose.ingress.hosts.core
-          value: harbor.{{ .Values.rootDomain }}
+          value: "{{ .Values.harborPrefixName }}.{{ .Values.baseDomain }}"
         - name: harbor.externalURL
-          value: "https://harbor.{{ .Values.rootDomain }}"
+          value: "https://{{ .Values.harborPrefixName }}.{{ .Values.baseDomain }}"
         - name: harbor.persistence.imageChartStorage.s3.bucket
           value: {{ .Values.harbor.registryS3Bucket }}
         - name: harbor.persistence.imageChartStorage.s3.region

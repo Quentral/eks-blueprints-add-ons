@@ -18,6 +18,11 @@ spec:
       values: |
         teleport-kube-agent:
         {{- toYaml .Values.teleportKubeAgent | nindent 10 }}
+      parameters:
+        - name: teleport-kube-agent.proxyAddr
+          value: https://tele.{{ .Values.baseDomain }}:443
+        - name: teleport-kube-agent.authToken
+          value: {{ .Values.teleportKubeAgent.authToken }}
   destination:
     server: https://kubernetes.default.svc
     namespace: teleport-cluster

@@ -57,13 +57,13 @@ kube-prometheus-stack:
         allow_sign_up: true
         scopes: profile,email,groups,openid,offline_access,roles
         client_id: grafana
-        client_secret: 0TAzmc3wbN2UfEC13gE77OOnYQrNG1Uf
-        auth_url: https://keycloak.kube.quentrix.com/auth/realms/Quentral/protocol/openid-connect/auth
-        token_url: https://keycloak.kube.quentrix.com/auth/realms/Quentral/protocol/openid-connect/token
-        api_url: https://keycloak.kube.quentrix.com/auth/realms/Quentral/protocol/openid-connect/userinfo
+        client_secret: secret
+        auth_url: https://keycloak.example.com/auth/realms/Realm/protocol/openid-connect/auth
+        token_url: https://keycloak.example.com/auth/realms/Realm/protocol/openid-connect/token
+        api_url: https://keycloak.example.com/auth/realms/Realm/protocol/openid-connect/userinfo
         role_attribute_path: contains(groups[*], 'grafana-admin') && 'Admin' || contains(groups[*], 'grafana-user') && 'Editor' || 'Viewer'
       server:
-        root_url: https://grafana.tele.quentrix.com
+        root_url: https://grafana.tele.example.com
     additionalDataSources:
     - name: loki
       isDefault: true

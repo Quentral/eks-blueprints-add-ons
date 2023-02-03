@@ -4,7 +4,14 @@ targetRevision: HEAD
 region: ''
 account: ''
 clusterName: ''
-rootDomain: ''
+baseDomain: ''
+argocdPrefixName: ''
+keycloakPrefixName: ''
+teleportPrefixName: ''
+harborPrefixName: ''
+gitlabPrefixName: ''
+grafanaPrefixName: ''
+kubecostPrefixName: ''
 
 # Agones Values
 agones:
@@ -113,9 +120,12 @@ externalSecrets:
 gitlab:
   enable: false
   region: ""
+  gitlabPrefixName: ""
   awsAccountS3AccessKeyId: ""
   awsAccountS3SecretAccessKey: ""
   auroraPostgresHost: ""
+  keycloakPrefixName: ""
+  gitlabKeycloakConnectorClientSecret: ""
 
 # Gatekeeper Values
 gatekeeper:
@@ -221,11 +231,17 @@ sparkOperator:
 # Teleport-cluster
 teleportCluster:
   enable: false
-  acmeEmail:
-
+  acmeEmail: ""
+  clusterName: ""
+  teleportGithubConnectorClientId: ""
+  teleportGithubConnectorClientSecret: ""
+  teleportDomain: ""
+  
 # Teleport-kube-agent
 teleportKubeAgent:
   enable: false
+  proxyAddr: ""
+  authToken: ""
 
 # Tetrate Istio Values
 tetrateIstio:
@@ -296,6 +312,8 @@ reloader:
 # Kube Prometheus Stack
 kubePrometheusStack:
   enable: false
+  grafanaClientSecret: ""
+  serverRootUrl: ""
 
 # Kyverno Values
 kyverno:

@@ -19,7 +19,7 @@ spec:
         - values.yaml
       parameters:
         - name: gitlab_operator.global.hosts.domain
-          value: {{ .Values.rootDomain }}
+          value: {{ .Values.baseDomain }}
         - name: gitlab_operator.global.psql.host
           value: {{ .Values.gitlab.auroraPostgresHost }}
         - name: s3_connect.region
@@ -28,12 +28,14 @@ spec:
           value: {{ .Values.gitlab.awsAccountS3AccessKeyId }}
         - name: s3_connect.aws_secret_access_key
           value: {{ .Values.gitlab.awsAccountS3SecretAccessKey }}
+        - name: gitlab_domain
+          value: "{{ .Values.gitlabPrefixName }}.{{ .Values.baseDomain }}"
         - name: gitlab-runner.gitlabUrl
-          value: "https://gitlab.{{ .Values.rootDomain }}"
+          value: "https://{{ .Values.gitlabPrefixName }}.{{ .Values.baseDomain }}"
         - name: gitlab_keycloak_client_secret
-          value: {{ .Values.gitlab.gitlabKeycloakClientSecret }}
+          value: {{ .Values.gitlab.gitlabKeycloakConnectorClientSecret }}
         - name: keycloak_domain
-          value: {{ .Values.rootDomain }}
+          value: {{ .Values.keycloakPrefixName }}.{{ .Values.baseDomain }}
     server: https://kubernetes.default.svc
     namespace: gitlab
   syncPolicy:
