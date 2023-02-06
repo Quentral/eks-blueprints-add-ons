@@ -25,7 +25,7 @@ spec:
           value: https://{{ .Values.keycloakPrefixName }}.{{ .Values.baseDomain }}/auth/realms/Quentral/protocol/openid-connect/auth
         - name: "kube-prometheus-stack.grafana.grafana\\.ini.auth\\.generic_oauth.token_url"
           value: https://{{ .Values.keycloakPrefixName }}.{{ .Values.baseDomain }}/auth/realms/Quentral/protocol/openid-connect/token
-        - name: "kube-prometheus-stack.grafana.grafana\\.ini.auth\\.generic_oauth".api_url"
+        - name: "kube-prometheus-stack.grafana.grafana\\.ini.auth\\.generic_oauth.api_url"
           value: https://{{ .Values.keycloakPrefixName }}.{{ .Values.baseDomain }}/auth/realms/Quentral/protocol/openid-connect/userinfo
         - name: kube-prometheus-stack.grafana."grafana.ini".server.root_url
           value: {{ .Values.kubePrometheusStack.serverRootUrl }}
