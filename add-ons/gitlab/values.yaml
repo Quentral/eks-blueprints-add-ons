@@ -104,7 +104,7 @@ s3_connect:
   aws_secret_access_key: ""
 
 # https://gitlab.com/gitlab-org/cloud-native/gitlab-operator/-/blob/0.8.1/CHART_VERSIONS
-gitlab_version: "6.7.3"
+gitlab_version: "6.7.6"
 gitlab_domain: ""
 
 # Gitlab runner
