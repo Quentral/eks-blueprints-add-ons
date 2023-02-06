@@ -716,14 +716,14 @@ stringData:
           "description": "",
           "rootUrl": "",
           "adminUrl": "",
-          "baseUrl": "https://argocd.tele.quentrix.com",
+          "baseUrl": "https://${ARGOCD_URL}",
           "surrogateAuthRequired": false,
           "enabled": true,
           "alwaysDisplayInConsole": false,
           "clientAuthenticatorType": "client-secret",
           "secret": "${ARGOCD_CLIENT_SECRET}",
           "redirectUris": [
-            "https://argocd.tele.quentrix.com/auth/callback"
+            "https://${ARGOCD_URL}/auth/callback"
           ],
           "webOrigins": [ ],
           "notBefore": 0,
@@ -807,14 +807,14 @@ stringData:
           "description": "",
           "rootUrl": "",
           "adminUrl": "",
-          "baseUrl": "https://gitlab.kube-gitlab.quentrix.com",
+          "baseUrl": "https://${GITLAB_URL}",
           "surrogateAuthRequired": false,
           "enabled": true,
           "alwaysDisplayInConsole": false,
           "clientAuthenticatorType": "client-secret",
           "secret": "${GITLAB_CLIENT_SECRET}",
           "redirectUris": [
-            "https://gitlab.kube-gitlab.quentrix.com/users/auth/openid_connect/callback"
+            "https://${GITLAB_URL}/users/auth/openid_connect/callback"
           ],
           "webOrigins": [ ],
           "notBefore": 0,
@@ -860,14 +860,14 @@ stringData:
           "description": "",
           "rootUrl": "",
           "adminUrl": "",
-          "baseUrl": "https://grafana.tele.quentrix.com",
+          "baseUrl": "https://${GRAFANA_URL}",
           "surrogateAuthRequired": false,
           "enabled": true,
           "alwaysDisplayInConsole": false,
           "clientAuthenticatorType": "client-secret",
           "secret": "${GRAFANA_CLIENT_SECRET}",
           "redirectUris": [
-            "https://grafana.tele.quentrix.com/login/generic_oauth"
+            "https://${GRAFANA_URL}/login/generic_oauth"
           ],
           "webOrigins": [ ],
           "notBefore": 0,
@@ -913,14 +913,14 @@ stringData:
           "description": "",
           "rootUrl": "",
           "adminUrl": "",
-          "baseUrl": "https://harbor.kube.quentrix.com",
+          "baseUrl": "https://${HARBOR_URL}",
           "surrogateAuthRequired": false,
           "enabled": true,
           "alwaysDisplayInConsole": false,
           "clientAuthenticatorType": "client-secret",
           "secret": "${HARBOR_CLIENT_SECRET}",
           "redirectUris": [
-            "https://harbor.kube.quentrix.com/c/oidc/callback"
+            "https://${HARBOR_URL}/c/oidc/callback"
           ],
           "webOrigins": [ ],
           "notBefore": 0,

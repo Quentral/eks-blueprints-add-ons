@@ -40,6 +40,14 @@ spec:
           value: {{ .Values.keycloak.githubClientSecret }}
         - name: githubClientId
           value: {{ .Values.keycloak.githubClientId }}
+        - name: gitlabUrl
+          value: {{ .Values.gitlabPrefixName }}.{{ .Values.baseDomain }}
+        - name: grafanaUrl
+          value: {{ .Values.grafanaPrefixName }}.{{ .Values.teleportPrefixName}}.{{ .Values.baseDomain }}
+        - name: harborUrl
+          value: {{ .Values.harborPrefixName}}.{{ .Values.baseDomain }}
+        - name: argocdUrl
+          value: {{ .Values.argocdPrefixName }}.{{ .Values.teleportPrefixName}}.{{ .Values.baseDomain }}
   destination:
     server: https://kubernetes.default.svc
     namespace: keycloak
