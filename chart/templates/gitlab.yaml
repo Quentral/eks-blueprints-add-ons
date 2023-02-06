@@ -32,7 +32,7 @@ spec:
           value: "{{ .Values.gitlabPrefixName }}.{{ .Values.baseDomain }}"
         - name: gitlab-runner.gitlabUrl
           value: "https://{{ .Values.gitlabPrefixName }}.{{ .Values.baseDomain }}"
-        - name: gitlab_keycloak_client_secret
+        - name: keycloak_client_secret
           value: "{{ .Values.gitlab.gitlabKeycloakConnectorClientSecret }}"
         - name: keycloak_domain
           value: "{{ .Values.keycloakPrefixName }}.{{ .Values.baseDomain }}"
