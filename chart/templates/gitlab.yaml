@@ -29,9 +29,9 @@ spec:
         - name: s3_connect.aws_secret_access_key
           value: {{ .Values.gitlab.awsAccountS3SecretAccessKey }}
         - name: gitlab_domain
-          value: "{{ .Values.gitlabPrefixName }}.{{ .Values.baseDomain }}"
+          value: {{ .Values.gitlabPrefixName }}.{{ .Values.baseDomain }}
         - name: gitlab-runner.gitlabUrl
-          value: "https://{{ .Values.gitlabPrefixName }}.{{ .Values.baseDomain }}"
+          value: https://{{ .Values.gitlabPrefixName }}.{{ .Values.baseDomain }}
         - name: gitlab_keycloak_client_secret
           value: {{ .Values.gitlab.gitlabKeycloakConnectorClientSecret }}
         - name: keycloak_domain
