@@ -36,6 +36,7 @@ spec:
         value: "{{ .Values.gitlab.gitlabKeycloakConnectorClientSecret }}"
       - name: keycloak_domain
         value: "{{ .Values.keycloakPrefixName }}.{{ .Values.baseDomain }}"
+  destination:
     server: https://kubernetes.default.svc
     namespace: gitlab
   syncPolicy:
