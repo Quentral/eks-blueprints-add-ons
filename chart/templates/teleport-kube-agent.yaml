@@ -25,8 +25,8 @@ spec:
           value: {{ .Values.teleportKubeAgent.authToken }}
         - name: teleport-kube-agent.apps[2].rewrite.headers
           value: |
-           - "Host: {{ .Values.grafanaPrefixName }}.{{ .Values.baseDomain }}"
-           - "Origin: {{ .Values.grafanaPrefixName }}.{{ .Values.baseDomain }}"
+           - "Host: {{ .Values.grafanaPrefixName }}.{{ .Values.teleportPrefixName }}.{{ .Values.baseDomain }}"
+           - "Origin: https://{{ .Values.grafanaPrefixName }}.{{ .Values.teleportPrefixName }}.{{ .Values.baseDomain }}"
   destination:
     server: https://kubernetes.default.svc
     namespace: teleport-cluster
