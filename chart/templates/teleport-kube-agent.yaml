@@ -23,10 +23,6 @@ spec:
           value: https://tele.{{ .Values.baseDomain }}:443
         - name: teleport-kube-agent.authToken
           value: {{ .Values.teleportKubeAgent.authToken }}
-        - name: teleport-kube-agent.authToken
-          value: {{ .Values.teleportKubeAgent.authToken }}
-        - name: teleport-kube-agent.authToken
-          value: {{ .Values.teleportKubeAgent.authToken }}
         - name: teleport-kube-agent.apps[2].rewrite.headers
           value: |
            - "Host: {{ .Values.grafanaPrefixName }}.{{ .Values.baseDomain }}"
