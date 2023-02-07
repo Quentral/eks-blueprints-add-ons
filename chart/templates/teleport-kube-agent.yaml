@@ -23,8 +23,8 @@ spec:
           value: https://tele.{{ .Values.baseDomain }}:443
         - name: teleport-kube-agent.authToken
           value: {{ .Values.teleportKubeAgent.authToken }}
-        - name: teleport-kube-agent.apps[2].rewrite.headers[0]
-          value: "{{ .Values.grafanaPrefixName }}.{{ .Values.teleportPrefixName }}.{{ .Values.baseDomain }}"
+        - name: teleport-kube-agent.apps[2].rewrite.headers
+          value: ["{{ .Values.grafanaPrefixName }}.{{ .Values.teleportPrefixName }}.{{ .Values.baseDomain }}"]
   destination:
     server: https://kubernetes.default.svc
     namespace: teleport-cluster
