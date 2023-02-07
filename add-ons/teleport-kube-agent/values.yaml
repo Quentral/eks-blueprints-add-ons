@@ -23,5 +23,5 @@ teleport-kube-agent:
       uri: http://kube-prometheus-stack-grafana.monitoring.svc.cluster.local
       rewrite:
         headers:
-          - "Host: grafana.tele.ops.quentrix.com"
-          - "Origin: https://grafana.tele.ops.quentrix.com"
+          - "Host: grafana.tele.infra.quentrix.com"
+          - "Origin: https://grafana.tele.infra.quentrix.com"
